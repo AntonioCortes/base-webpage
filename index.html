@@ -2,8 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>Base Webpage</title>
 	<link rel="stylesheet" href="css/vendor/bootstrap/5.1/bootstrap.min.css">
 	<link rel="stylesheet" href="css/general-style.css">
 	<link rel="stylesheet" href="css/sidebars.css">
@@ -13,53 +12,61 @@
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#">Navbar</a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
+				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-			<div class="navbar-nav">
-				<a class="nav-link active" aria-current="page" href="#">Home</a>
-				<a class="nav-link" href="#">Features</a>
-				<a class="nav-link" href="#">Pricing</a>
-			</div>
+				<div class="navbar-nav">
+					<a class="nav-link active" aria-current="page" href="#">Home</a>
+					<a class="nav-link" href="#">Features</a>
+					<a class="nav-link" href="#">Pricing</a>
+				</div>
 			</div>
 		</div>
 	</nav>
 
-	<div class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
-		<a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
-		  <svg class="bi me-2" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
-		  <span class="fs-5 fw-semibold">Collapsible</span>
-		</a>
-		<ul class="list-unstyled ps-0">
-			<li class="mb-1">
-				<button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-				Home
-				</button>
-				<div class="collapse show" id="home-collapse">
-				<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-					<li><a href="#" class="link-dark rounded">Overview</a></li>
-					<li><a href="#" class="link-dark rounded">Updates</a></li>
-					<li><a href="#" class="link-dark rounded">Reports</a></li>
-				</ul>
-				</div>
-			</li>
-		  	<li class="border-top my-3"></li>
-			<li class="mb-1">
-				<button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
-				Account
-				</button>
-				<div class="collapse" id="account-collapse">
-				<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-					<li><a href="#" class="link-dark rounded">New...</a></li>
-					<li><a href="#" class="link-dark rounded">Profile</a></li>
-					<li><a href="#" class="link-dark rounded">Settings</a></li>
-					<li><a href="#" class="link-dark rounded">Sign out</a></li>
-				</ul>
-				</div>
-			</li>
-		</ul>
-	  </div>
+	<div class="main-container">
+		<div class="flex-shrink-0 p-3 sidebar">
+			<a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+				<svg class="bi me-2" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
+				<span class="fs-5 fw-semibold">Collapsible</span>
+			</a>
+			<ul class="list-unstyled ps-0">
+				<li class="mb-1">
+					<button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+					Home
+					</button>
+					<div class="collapse show" id="home-collapse">
+						<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+							<li><a href="#" class="link-dark rounded">Overview</a></li>
+							<li><a href="#" class="link-dark rounded">Updates</a></li>
+							<li><a href="#" class="link-dark rounded">Reports</a></li>
+						</ul>
+					</div>
+				</li>
+				<li class="border-top my-3"></li>
+				<li class="mb-1">
+					<button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="true">
+					Links
+					</button>
+					<div class="collapse" id="account-collapse">
+					<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+						<li><a href="https://getbootstrap.com/" class="link-dark rounded">Bootstrap</a></li>
+						<li><a href="https://www.w3schools.com/html/default.asp" class="link-dark rounded">W3Schools</a></li>
+						<li><a href="https://freefrontend.com/" class="link-dark rounded">Freefrontend</a></li>
+						<li><a href="https://css-tricks.com/" class="link-dark rounded">CSS Tricks</a></li>
+					</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
 
-	  <script src="js/vendor/bootstrap/5.1/bootstrap.bundle.min.js"></script>
+		<div class="">
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero aliquam ad, perferendis earum ratione pariatur optio iste nisi, dolorum quaerat quis molestias consectetur quam excepturi! Sequi unde consequuntur minus nulla! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates voluptate non veniam sed perspiciatis vel exercitationem? Debitis nam nemo eius nisi expedita iure quia, ipsum odio possimus, exercitationem sequi asperiores.</p>
+
+		</div>
+	</div>
+
+	<script src="js/vendor/bootstrap/5.1/bootstrap.bundle.min.js"></script>
+	<script src="js/main.js"></script>
 </body>
 </html>
