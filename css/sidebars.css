@@ -51,5 +51,12 @@
 .sidebar {
   width: 280px;
   height: 100%;
-  background-color: blueviolet;
+  background-color: lightgray;
+  overflow: scroll;
+}
+
+@media (max-width: 1000px){
+  .sidebar{
+    position:fixed;
+  }
 }

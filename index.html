@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html>
-<head>
+	<head>
 	<meta charset="UTF-8">
 	<title>Base Webpage</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<script src="js/vendor/fontawesome/fontawesome.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="css/vendor/bootstrap/5.1/bootstrap.min.css">
-	<link rel="stylesheet" href="css/general-style.css">
 	<link rel="stylesheet" href="css/sidebars.css">
+	<link rel="stylesheet" href="css/general-style.css">
 </head>
 <body>
-	<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+	<nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
 		<div class="container-fluid">
+			<button id="button-navbar-collapse" class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-expanded="true">
+			</button>
 			<a class="navbar-brand" href="#">Navbar</a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -24,10 +28,9 @@
 		</div>
 	</nav>
 
-	<div class="main-container">
-		<div class="flex-shrink-0 p-3 sidebar">
+	<main class="main-container">
+		<aside class="flex-shrink-0 p-3 sidebar collapse collapse-horizontal show" id="sidebar">
 			<a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
-				<svg class="bi me-2" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
 				<span class="fs-5 fw-semibold">Collapsible</span>
 			</a>
 			<ul class="list-unstyled ps-0">
@@ -58,13 +61,14 @@
 					</div>
 				</li>
 			</ul>
-		</div>
-
-		<div class="">
-			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero aliquam ad, perferendis earum ratione pariatur optio iste nisi, dolorum quaerat quis molestias consectetur quam excepturi! Sequi unde consequuntur minus nulla! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates voluptate non veniam sed perspiciatis vel exercitationem? Debitis nam nemo eius nisi expedita iure quia, ipsum odio possimus, exercitationem sequi asperiores.</p>
-
-		</div>
-	</div>
+		</aside>
+		
+		<section id="contenido-principal" class="container">
+			<p>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero aliquam ad, perferendis earum ratione pariatur optio iste nisi, dolorum quaerat quis molestias consectetur quam excepturi! Sequi unde consequuntur minus nulla! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates voluptate non veniam sed perspiciatis vel exercitationem? Debitis nam nemo eius nisi expedita iure quia, ipsum odio possimus, exercitationem sequi asperiores.
+			</p>
+		</section>
+	</main>
 
 	<script src="js/vendor/bootstrap/5.1/bootstrap.bundle.min.js"></script>
 	<script src="js/main.js"></script>

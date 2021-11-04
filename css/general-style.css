@@ -11,3 +11,35 @@ body {
     height: 100%;
     display: flex;
 }
+#button-navbar-collapse{
+    background-color: #212529;
+    border: none;
+    box-shadow: unset;
+}
+#button-navbar-collapse::before{
+    content:url("/resources/vendor/fontawesome-svg/solid/circle-arrow-right.svg");
+    transform-origin: unset;
+}
+#button-navbar-collapse[aria-expanded="true"]::before {
+    transform: rotate(180deg);
+
+}
+/*
+a#button-navbar-collapse.collapsed i.fas::before{
+    content:"\f0a9";
+}*/
+ /* 
+a#button-navbar-collapse{
+    margin: 0px 10px;
+    font-size: 25px;
+    color: white;
+}
+  */
+  /*
+  a#button_navbar_collapse{
+    transition: transform .5s ease-in-out;
+  }
+  a#button_navbar_collapse:hover {
+    transform: rotate(180deg);
+  }
+  */
