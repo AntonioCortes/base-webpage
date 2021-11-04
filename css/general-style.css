@@ -17,7 +17,7 @@ body {
     box-shadow: unset;
 }
 #button-navbar-collapse::before{
-    content:url("/resources/vendor/fontawesome-svg/solid/circle-arrow-right.svg");
+    content:url("base-webpage/resources/vendor/fontawesome-svg/solid/circle-arrow-right.svg");
     transform-origin: unset;
 }
 #button-navbar-collapse[aria-expanded="true"]::before {
