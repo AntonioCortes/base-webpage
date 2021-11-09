@@ -2,12 +2,6 @@
     DEMO STYLE
 */
 
-@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
-body {
-    font-family: 'Poppins', sans-serif;
-    background: #fafafa;
-}
-
 p {
     font-family: 'Poppins', sans-serif;
     font-size: 1.1em;
@@ -159,15 +153,20 @@ a.article:hover {
 @media (max-width: 768px) {
     #sidebar {
         margin-left: -250px;
+
+        min-width: 250px;
+        max-width: 250px;
+        height: 100vh;
+        position: fixed;
+        /*top: 0;*/
+        left: 0;
+        /* top layer */
+        /*z-index: 9999;*/
     }
     #sidebar.active {
         margin-left: 0;
     }
     #sidebarCollapse span {
         display: none;
-    }
-
-    #sidebar{
-        position:fixed;
     }
 }
