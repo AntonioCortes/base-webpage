@@ -1,9 +1,8 @@
-html {
+html, body {
     height: 100vh;
 }
 
 body {
-    /*height: 100%;*/
     padding-top: 55px;
 }
 
