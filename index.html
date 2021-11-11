@@ -5,16 +5,15 @@
 	<title>Base Webpage</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<link rel="stylesheet" href="css/vendor/bootstrap/5.1/bootstrap.min.css">
-	<link rel="stylesheet" href="resources/vendor/bootstrap-icons/1.6.1/bootstrap-icons.css">
+	<link rel="stylesheet" href="resources/vendor/bootstrap-icons/1.7.0/bootstrap-icons.css">
 	<link rel="stylesheet" href="css/sidebar.css">
 	<link rel="stylesheet" href="css/general-style.css">
 </head>
 <body>
 	<nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
 		<div class="container-fluid">
-            <button type="button" id="sidebarCollapse" class="btn btn-info">
-                <i class="fas fa-align-left"></i>
-                <span>Toggle Sidebar</span>
+            <button type="button" id="sidebarCollapse" class="btn btn-light">
+                <i class="bi bi-layout-text-sidebar"></i>
             </button>
 			<button id="button-navbar-collapse" class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-expanded="true">
 			</button>
@@ -39,25 +38,25 @@
                 <h3>Bootstrap Sidebar</h3>
             </div>
 
-            <ul class="list-unstyled components">
+            <ul class="list-unstyled">
                 <p>Dummy Heading</p>
                 <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">Home</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <a data-bs-toggle="collapse" href="#collapse1" role="button" aria-expanded="false" aria-controls="collapse1">Home</a>
+                    <ul class="collapse show list-unstyled" id="collapse1">
                         <li>
-                            <a href="#">Home 1</a>
+                            <a href="#">Link 1</a>
                         </li>
                         <li>
-                            <a href="#">Home 2</a>
+                            <a href="#">Link 2</a>
                         </li>
                         <li>
-                            <a href="#">Home 3</a>
+                            <a href="#">Link 3</a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <a data-bs-toggle="collapse" href="#collapse2" role="button" aria-expanded="false" aria-controls="collapse2">Pages</a>
+                    <ul class="collapse show list-unstyled" id="collapse2">
                         <li>
                             <a href="#">Page 1</a>
                         </li>
@@ -70,13 +69,14 @@
                     </ul>
                 </li>
             </ul>
-
-            <ul class="list-unstyled CTAs">
+            
+            <a data-bs-toggle="collapse" href="#collapse-links" role="button" aria-expanded="false" aria-controls="collapse-links">Links</a>
+            <ul class="collapse show list-unstyled" id="collapse-links">
                 <li>
-                    <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
+                    <a href="https://bootstrapious.com/tutorial/files/sidebar.zip">Download source</a>
                 </li>
                 <li>
-                    <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
+                    <a href="https://bootstrapious.com/p/bootstrap-sidebar">Bootstrap Sidebar</a>
                 </li>
             </ul>
         </nav>
@@ -89,7 +89,6 @@
     </div>
 
     <script src="js/vendor/jquery/3.6.0/jquery.min.js"></script>
-	<script src="js/vendor/popper/2.10.2/popper.min.js"></script>	
 	<script src="js/vendor/bootstrap/5.1/bootstrap.bundle.min.js"></script>
 	<script src="js/main.js"></script>
 </body>

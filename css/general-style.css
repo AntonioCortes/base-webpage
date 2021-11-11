@@ -5,22 +5,3 @@ html, body {
 body {
     padding-top: 55px;
 }
-
-/*.main-container {
-    height: 100%;
-    display: flex;
-}
-#button-navbar-collapse{
-    background-color: #212529;
-    border: none;
-    box-shadow: unset;
-}
-
-#button-navbar-collapse::before{
-    content:url("../resources/vendor/bootstrap-icons/1.6.1/arrow-right-circle-fill.svg");
-    transform-origin: unset;
-}
-#button-navbar-collapse[aria-expanded="true"]::before {
-    transform: rotate(180deg);
-
-}*/
