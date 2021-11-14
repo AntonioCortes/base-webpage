@@ -1,0 +1,22 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        
+        <button type="button" id="sidebarCollapse" class="btn btn-light" onclick="toggleSidebar()">
+            <i class="bi bi-layout-text-sidebar"></i>
+        </button>
+
+        <img src="/assets/img/bootstrap.svg" height="40px">
+        <a class="navbar-brand" href="#" onclick="changeContent('mainView.sidebar', 'mainView.content1')">Languaje</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link active" aria-current="page" href="#" onclick="changeContent('mainView.sidebar', 'mainView.content1')">Main View</a>
+                <a class="nav-link active" href="#" onclick="changeContent('anotherView.sidebar', 'anotherView.content1')">Another View</a>
+            </div>
+        </div>
+    </div>
+</nav>
