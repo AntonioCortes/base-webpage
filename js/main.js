@@ -20,7 +20,7 @@ function getPath(pathKey)
 		path = path[key];
 	}
 
-	return '../' + path;
+	return path;
 }
 
 function changeContent(...args)
