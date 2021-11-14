@@ -1,4 +1,4 @@
-const paths = {
+{
     "common" : {
         "navbar" : "components/common/navbar.html"
     },

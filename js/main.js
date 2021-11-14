@@ -1,8 +1,16 @@
+let paths = null;
+
 $(document).ready(function () 
 {
-	$('#navbar').load(paths.common.navbar);
-	$('#sidebar').load(paths.mainView.sidebar);
-	$('#content').load(paths.mainView.content1);
+	$.getJSON("assets/paths.json", function (json) 
+	{
+		paths = json;
+
+		$('#navbar').load(paths.common.navbar);
+		$('#sidebar').load(paths.mainView.sidebar);
+		$('#content').load(paths.mainView.content1);
+	});
+	
 });
 
 function toggleSidebar()
