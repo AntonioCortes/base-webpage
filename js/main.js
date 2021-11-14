@@ -2,7 +2,7 @@ let paths = null;
 
 $(document).ready(function () 
 {
-	$.getJSON( "/assets/paths.json", function( json )
+	$.getJSON( "../assets/paths.json", function( json )
 	{
 		paths = json;
 
@@ -27,7 +27,7 @@ function getPath(pathKey)
 		path = path[key];
 	}
 
-	return path;
+	return '../' + path;
 }
 
 function changeContent(...args)

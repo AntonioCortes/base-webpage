@@ -1,17 +1,17 @@
 {
     "common" : {
-        "navbar" : "/components/common/navbar.html"
+        "navbar" : "components/common/navbar.html"
     },
     "mainView" : {
-        "sidebar" : "/components/main-view/sidebar.html",
-        "content1" : "/components/main-view/content-1.html",
-        "content2" : "/components/main-view/content-2.html",
-        "content3" : "/components/main-view/content-3.html",
-        "content4" : "/components/main-view/content-4.html"
+        "sidebar" : "components/main-view/sidebar.html",
+        "content1" : "components/main-view/content-1.html",
+        "content2" : "components/main-view/content-2.html",
+        "content3" : "components/main-view/content-3.html",
+        "content4" : "components/main-view/content-4.html"
     },
     "anotherView" : {
-        "sidebar" : "/components/another-view/sidebar.html",
-        "content1" : "/components/another-view/content-1.html",
-        "content2" : "/components/another-view/content-2.html"
+        "sidebar" : "components/another-view/sidebar.html",
+        "content1" : "components/another-view/content-1.html",
+        "content2" : "components/another-view/content-2.html"
     }
 }
