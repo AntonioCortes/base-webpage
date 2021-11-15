@@ -3,6 +3,7 @@
         "navbar" : "components/common/navbar.html"
     },
     "mainView" : {
+        "logo" : "assets/img/bootstrap.svg",
         "sidebar" : "components/main-view/sidebar.html",
         "content1" : "components/main-view/content-1.html",
         "content2" : "components/main-view/content-2.html",
@@ -10,6 +11,7 @@
         "content4" : "components/main-view/content-4.html"
     },
     "anotherView" : {
+        "logo" : "assets/img/bootstrap.svg",
         "sidebar" : "components/another-view/sidebar.html",
         "content1" : "components/another-view/content-1.html",
         "content2" : "components/another-view/content-2.html"
