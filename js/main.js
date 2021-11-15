@@ -2,12 +2,21 @@ let paths = null;
 
 $(document).ready(function () 
 {
-	$.getJSON("assets/paths.json", function (json) 
+	$.getJSON("assets/constants.json", function (json) 
 	{
 		paths = json;
+		const mainTopic = 'Main';
 
-		$('#navbar').load(paths.common.navbar);
-		$('#sidebar').load(paths.mainView.sidebar);
+		$('#navbar').load(paths.common.navbar, function()
+		{
+			$('#nav-topic').text(mainTopic);
+			
+			$('#logo').attr('src', paths.mainView.logo);
+		});
+		$('#sidebar').load(paths.mainView.sidebar, function()
+		{
+			$('#sidebar-header').text(mainTopic);
+		});
 		$('#content').load(paths.mainView.content1);
 	});
 	
@@ -31,15 +40,16 @@ function getPath(pathKey)
 	return path;
 }
 
-function changeContent(...args)
+function changeContent(content)
 {
-	if(args.length == 1)
-	{
-		$('#content').load(getPath(args[0]));
-	}
-	else if(args.length == 2)
-	{
-		$('#sidebar').load(getPath(args[0]));
-		$('#content').load(getPath(args[1]));
-	}
+	$('#content').load(getPath(content));
+}
+
+function changeView(view, topic) 
+{
+	$('#nav-topic').text(topic);
+	$('#sidebar-header').text(topic);
+	$('#logo').attr('src', getPath(view + '.logo'));
+	$('#content').load(getPath(view + '.mainContent'));
+	$('#sidebar').load(getPath(view + '.sidebar'));
 }
