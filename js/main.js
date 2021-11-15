@@ -1,25 +1,22 @@
-let paths = null;
+let constants = null;
 
 $(document).ready(function () 
 {
 	$.getJSON("assets/constants.json", function (json) 
 	{
-		paths = json;
-		const mainTopic = 'Main';
+		constants = json;
 
-		$('#navbar').load(paths.common.navbar, function()
+		$('#navbar').load(constants.common.paths.navbar, function()
 		{
-			$('#nav-topic').text(mainTopic);
-			
-			$('#logo').attr('src', paths.mainView.logo);
+			$('#nav-topic').text(constants.mainView.topic);		
+			$('#logo').attr('src', constants.mainView.paths.logo);
 		});
-		$('#sidebar').load(paths.mainView.sidebar, function()
+		$('#sidebar').load(constants.mainView.paths.sidebar, function()
 		{
-			$('#sidebar-header').text(mainTopic);
+			$('#sidebar-header').text(constants.mainView.topic);
 		});
-		$('#content').load(paths.mainView.content1);
+		$('#content').load(constants.mainView.paths.content1);
 	});
-	
 });
 
 function toggleSidebar()
@@ -27,29 +24,31 @@ function toggleSidebar()
     $('#sidebar').toggleClass('active');
 }
 
-function getPath(pathKey)
+function getConstant(constantKey)
 {
-	const splittedPathKey = pathKey.split('.');
+	const splittedConstantKey = constantKey.split('.');
 	
-	let path = paths;
-	for(const key of splittedPathKey)
+	let constant = constants;
+	for(const key of splittedConstantKey)
 	{
-		path = path[key];
+		constant = constant[key];
 	}
 
-	return path;
+	return constant;
 }
 
 function changeContent(content)
 {
-	$('#content').load(getPath(content));
+	$('#content').load(getConstant(content));
 }
 
-function changeView(view, topic) 
+function changeView(view) 
 {
-	$('#nav-topic').text(topic);
-	$('#sidebar-header').text(topic);
-	$('#logo').attr('src', getPath(view + '.logo'));
-	$('#content').load(getPath(view + '.mainContent'));
-	$('#sidebar').load(getPath(view + '.sidebar'));
+	$('#nav-topic').text(getConstant(view + '.topic'));
+	$('#logo').attr('src', getConstant(view + '.paths.logo'));
+	$('#content').load(getConstant(view + '.paths.mainContent'));
+	$('#sidebar').load(getConstant(view + '.paths.sidebar'), function()
+	{
+		$('#sidebar-header').text(getConstant(view + '.topic'));
+	});
 }

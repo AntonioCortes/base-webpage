@@ -1,12 +1,12 @@
 {
     "common" : {
-        "path" : {
+        "paths" : {
             "navbar" : "components/common/navbar.html"
         }
     },
     "mainView" : {
         "topic" : "Main Topic",
-        "path" : {
+        "paths" : {
             "logo" : "assets/img/bootstrap.svg",
             "sidebar" : "components/main-view/sidebar.html",
             "mainContent" : "components/main-view/content-1.html",
@@ -17,10 +17,13 @@
         }
     },
     "anotherView" : {
-        "logo" : "assets/img/bootstrap-4.svg",
-        "sidebar" : "components/another-view/sidebar.html",
-        "mainContent" : "components/another-view/content-1.html",
-        "content1" : "components/another-view/content-1.html",
-        "content2" : "components/another-view/content-2.html"
+        "topic" : "Another Topic",
+        "paths" : {
+            "logo" : "assets/img/bootstrap-4.svg",
+            "sidebar" : "components/another-view/sidebar.html",
+            "mainContent" : "components/another-view/content-1.html",
+            "content1" : "components/another-view/content-1.html",
+            "content2" : "components/another-view/content-2.html"
+        }
     }
 }
