@@ -5,8 +5,8 @@
             <i class="bi bi-layout-text-sidebar"></i>
         </button>
 
-        <img src="assets/img/bootstrap.svg" height="40px">
-        <a class="navbar-brand" href="#" onclick="changeContent('mainView.sidebar', 'mainView.content1')">Language</a>
+        <img id="logo" height="40px">
+        <a id="nav-topic" class="navbar-brand" href="#" onclick="changeView('mainView')"></a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -14,8 +14,8 @@
         
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="#" onclick="changeContent('mainView.sidebar', 'mainView.content1')">Main View</a>
-                <a class="nav-link active" href="#" onclick="changeContent('anotherView.sidebar', 'anotherView.content1')">Another View</a>
+                <a class="nav-link active" aria-current="page" href="#" onclick="changeView('mainView')">Main View</a>
+                <a class="nav-link active" href="#" onclick="changeView('anotherView')">Another View</a>
             </div>
         </div>
     </div>

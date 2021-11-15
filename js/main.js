@@ -1,16 +1,22 @@
-let paths = null;
+let constants = null;
 
 $(document).ready(function () 
 {
-	$.getJSON("assets/paths.json", function (json) 
+	$.getJSON("assets/constants.json", function (json) 
 	{
-		paths = json;
+		constants = json;
 
-		$('#navbar').load(paths.common.navbar);
-		$('#sidebar').load(paths.mainView.sidebar);
-		$('#content').load(paths.mainView.content1);
+		$('#navbar').load(constants.common.paths.navbar, function()
+		{
+			$('#nav-topic').text(constants.mainView.topic);		
+			$('#logo').attr('src', constants.mainView.paths.logo);
+		});
+		$('#sidebar').load(constants.mainView.paths.sidebar, function()
+		{
+			$('#sidebar-header').text(constants.mainView.topic);
+		});
+		$('#content').load(constants.mainView.paths.content1);
 	});
-	
 });
 
 function toggleSidebar()
@@ -18,28 +24,31 @@ function toggleSidebar()
     $('#sidebar').toggleClass('active');
 }
 
-function getPath(pathKey)
+function getConstant(constantKey)
 {
-	const splittedPathKey = pathKey.split('.');
+	const splittedConstantKey = constantKey.split('.');
 	
-	let path = paths;
-	for(const key of splittedPathKey)
+	let constant = constants;
+	for(const key of splittedConstantKey)
 	{
-		path = path[key];
+		constant = constant[key];
 	}
 
-	return path;
+	return constant;
 }
 
-function changeContent(...args)
+function changeContent(content)
 {
-	if(args.length == 1)
+	$('#content').load(getConstant(content));
+}
+
+function changeView(view) 
+{
+	$('#nav-topic').text(getConstant(view + '.topic'));
+	$('#logo').attr('src', getConstant(view + '.paths.logo'));
+	$('#content').load(getConstant(view + '.paths.mainContent'));
+	$('#sidebar').load(getConstant(view + '.paths.sidebar'), function()
 	{
-		$('#content').load(getPath(args[0]));
-	}
-	else if(args.length == 2)
-	{
-		$('#sidebar').load(getPath(args[0]));
-		$('#content').load(getPath(args[1]));
-	}
+		$('#sidebar-header').text(getConstant(view + '.topic'));
+	});
 }
