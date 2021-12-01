@@ -20,6 +20,7 @@ $(document).ready(function ()
 		$('#content').load(constants.mainView.paths.content1, function()
 		{
 			hljs.highlightAll();
+			hljs.initLineNumbersOnLoad();
 		});
 	});
 });
@@ -44,14 +45,22 @@ function getConstant(constantKey)
 
 function changeContent(content)
 {
-	$('#content').load(getConstant(content));
+	$('#content').load(getConstant(content), function()
+	{
+		hljs.highlightAll();
+		hljs.initLineNumbersOnLoad();
+	});
 }
 
 function changeView(view) 
 {
 	$('#nav-topic').text(getConstant(view + '.topic'));
 	$('#logo').attr('src', getConstant(view + '.paths.logo'));
-	$('#content').load(getConstant(view + '.paths.mainContent'));
+	$('#content').load(getConstant(view + '.paths.mainContent'), function()
+	{
+		hljs.highlightAll();
+		hljs.initLineNumbersOnLoad();
+	});
 	$('#sidebar').load(getConstant(view + '.paths.sidebar'), function()
 	{
 		$('#sidebar-header').text(getConstant(view + '.topic'));
