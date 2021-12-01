@@ -11,11 +11,16 @@ $(document).ready(function ()
 			$('#nav-topic').text(constants.mainView.topic);		
 			$('#logo').attr('src', constants.mainView.paths.logo);
 		});
+
 		$('#sidebar').load(constants.mainView.paths.sidebar, function()
 		{
 			$('#sidebar-header').text(constants.mainView.topic);
 		});
-		$('#content').load(constants.mainView.paths.content1);
+
+		$('#content').load(constants.mainView.paths.content1, function()
+		{
+			hljs.highlightAll();
+		});
 	});
 });
 
