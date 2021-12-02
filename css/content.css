@@ -1,0 +1,29 @@
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+}
+
+.wrapper {
+    height: 100%;
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+#content {
+    width: 100%;
+    padding: 20px;
+    min-height: 100%;
+    transition: all 0.3s;
+}
+
+.hljs-ln-n {
+    margin-right: 25px;
+}
+
+/*td.hljs-ln-code:hover {
+    background-color: lightcoral;
+}*/
