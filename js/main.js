@@ -12,16 +12,7 @@ $(document).ready(function ()
 			$('#logo').attr('src', constants.mainView.paths.logo);
 		});
 
-		$('#sidebar').load(constants.mainView.paths.sidebar, function()
-		{
-			$('#sidebar-header').text(constants.mainView.topic);
-		});
-
-		$('#content').load(constants.mainView.paths.content1, function()
-		{
-			hljs.highlightAll();
-			hljs.initLineNumbersOnLoad();
-		});
+		changeView('mainView');
 	});
 });
 
@@ -43,26 +34,39 @@ function getConstant(constantKey)
 	return constant;
 }
 
-function changeContent(content)
+function changeContent(contentKey)
 {
-	$('#content').load(getConstant(content), function()
+	const component = getConstant(contentKey)
+	if("css" in component)
+	{
+		$('#component-css').attr('href', component.basePath + '/' + component.css);
+	}
+	else
+	{
+		$('#component-css').attr('href', '');
+	}
+
+	$('#content').load(component.basePath + '/' + component.html, function()
 	{
 		hljs.highlightAll();
 		hljs.initLineNumbersOnLoad();
+
+		if("js" in component)
+		{
+			$.getScript(component.basePath + '/' + component.js);
+		}
 	});
 }
 
-function changeView(view) 
+function changeView(viewKey) 
 {
-	$('#nav-topic').text(getConstant(view + '.topic'));
-	$('#logo').attr('src', getConstant(view + '.paths.logo'));
-	$('#content').load(getConstant(view + '.paths.mainContent'), function()
+	const view = getConstant(viewKey);
+	$('#nav-topic').text(view.topic);
+	$('#logo').attr('src', view.paths.logo);	
+	$('#sidebar').load(view.paths.sidebar, function()
 	{
-		hljs.highlightAll();
-		hljs.initLineNumbersOnLoad();
+		$('#sidebar-header').text(view.topic);
 	});
-	$('#sidebar').load(getConstant(view + '.paths.sidebar'), function()
-	{
-		$('#sidebar-header').text(getConstant(view + '.topic'));
-	});
+
+	changeContent(viewKey + '.paths.' + view.mainContent)
 }

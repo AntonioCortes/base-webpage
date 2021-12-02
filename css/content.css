@@ -20,6 +20,10 @@ p {
     transition: all 0.3s;
 }
 
-td.hljs-ln-code:hover {
-    background-color: lightcoral;
+.hljs-ln-n {
+    margin-right: 25px;
 }
+
+/*td.hljs-ln-code:hover {
+    background-color: lightcoral;
+}*/
