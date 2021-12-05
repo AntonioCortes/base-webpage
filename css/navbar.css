@@ -1,0 +1,5 @@
+.brand-container {
+    width: 240px;
+    display: flex;
+    column-gap: 15px;
+}
