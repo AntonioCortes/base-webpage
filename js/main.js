@@ -48,13 +48,49 @@ function changeContent(contentKey)
 
 	$('#content').load(component.basePath + '/' + component.html, function()
 	{
-		hljs.highlightAll();
-		hljs.initLineNumbersOnLoad();
+		$('[data-bs-toggle="tooltip"]').tooltip();  
+		addCodeLineNumbers();
+
+		setTimeout(function () 
+		{
+			hljs.highlightAll();
+
+			const options = {
+				copyIconClass: "bi bi-files",
+				checkIconClass: "bi bi-check-lg text-success",
+			};
+			window.highlightJsBadge(options);
+		}, 10);
+
+		
 
 		if("js" in component)
 		{
 			$.getScript(component.basePath + '/' + component.js);
 		}
+	});
+}
+
+function addCodeLineNumbers()
+{
+	$.each($('code'), function() {
+		this.innerHTML = this.innerText.trim();
+
+		const lineCount = this.innerHTML.match(/[^\n]*\n[^\n]*/gi).length
+		
+		const div = document.createElement('div');
+		div.classList.add('hljs');
+		div.classList.add('padding-14');
+
+		for(var i = 1; i < lineCount + 2; i++)
+		{
+			const div2 = document.createElement('div');
+
+			div2.innerText = i;
+			div.appendChild(div2);
+		}
+
+		this.parentElement.insertBefore(div, this);
 	});
 }
 

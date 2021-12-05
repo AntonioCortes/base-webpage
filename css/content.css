@@ -20,8 +20,12 @@ p {
     transition: all 0.3s;
 }
 
-.hljs-ln-n {
-    margin-right: 25px;
+pre {
+    display: inline-flex;
+}
+
+.padding-14 {
+    padding: 14px;
 }
 
 /*td.hljs-ln-code:hover {
