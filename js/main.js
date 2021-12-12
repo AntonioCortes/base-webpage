@@ -114,10 +114,10 @@ function changeView(viewKey)
 
 function hideMenuForMobile()
 {
-	(window.innerWidth <= 960)?toggleSidebar():'';
+	(window.innerWidth <= 992)?toggleSidebar():'';
 }
 
 function hideNavBarForMobile() 
 {
-	(window.innerWidth <= 960)?toggleNavbar():'';
+	(window.innerWidth <= 992)?toggleNavbar():'';
 }

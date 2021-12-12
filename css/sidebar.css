@@ -8,6 +8,7 @@ a:focus {
 }
 
 #sidebar {
+    z-index: 1;
     min-width: 250px;
     max-width: 250px;
     background: #7386D5;
@@ -86,10 +87,9 @@ ul.CTAs a {
     MEDIAQUERIES
 ----------------------------------------------------- */
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     #sidebar {
         margin-left: -250px;
-
         min-width: 250px;
         max-width: 250px;
         height: 100%;
