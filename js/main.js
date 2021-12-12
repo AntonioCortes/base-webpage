@@ -106,3 +106,7 @@ function changeView(viewKey)
 
 	changeContent(viewKey + '.paths.' + view.mainContent)
 }
+
+function hideMenuForMobile(){
+	(window.innerWidth <= 960)?toggleSidebar():'';
+}
