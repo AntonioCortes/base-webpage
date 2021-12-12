@@ -21,6 +21,11 @@ function toggleSidebar()
     $('#sidebar').toggleClass('active');
 }
 
+function toggleNavbar() 
+{
+	$('#navbarNavAltMarkup').toggleClass('show');
+}
+
 function getConstant(constantKey)
 {
 	const splittedConstantKey = constantKey.split('.');
@@ -107,6 +112,12 @@ function changeView(viewKey)
 	changeContent(viewKey + '.paths.' + view.mainContent)
 }
 
-function hideMenuForMobile(){
+function hideMenuForMobile()
+{
 	(window.innerWidth <= 960)?toggleSidebar():'';
+}
+
+function hideNavBarForMobile() 
+{
+	(window.innerWidth <= 960)?toggleNavbar():'';
 }
