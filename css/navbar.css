@@ -3,3 +3,33 @@
     display: flex;
     column-gap: 15px;
 }
+
+/*como me borres esto te aniquilo*/
+/*===========================================================*/
+img[name="arrow_menu"]{
+    /* y aquí cambias el color de la flechita!!!!!!!! :D */
+    background-color: white;
+    /*si quieres puedes cambiar la flechita aqui :) */
+    content: url("../../../assets/vendor/bootstrap-icons/1.7.0/arrow-right-short.svg");
+    margin: 5px;
+    /*aquí si la quuieres mas redonda o mas cuadrada*/
+    border-radius: 20px;
+    /*aquí el tamaño de la flecha*/
+    height: 20px;
+    transition: transform .35s ease;
+}
+
+a[aria-expanded="true"] img[name="arrow_menu"]{
+    transform:rotate(90deg);
+}
+/*===========================================================*/
+
+/*=========DIVIDER=========*/
+div[name="divider"]{
+    display: block;
+    background-color: #212529;
+    height: 3px;
+    width: 100%;
+    margin: 15px 0px;
+}
+/*=========================*/
