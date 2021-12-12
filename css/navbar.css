@@ -10,7 +10,7 @@ img[name="arrow_menu"]{
     /* y aquí cambias el color de la flechita!!!!!!!! :D */
     background-color: white;
     /*si quieres puedes cambiar la flechita aqui :) */
-    content: url("../../../assets/vendor/bootstrap-icons/1.7.0/arrow-right-short.svg");
+    content: url("../assets/vendor/bootstrap-icons/1.7.0/arrow-right-short.svg");
     margin: 5px;
     /*aquí si la quuieres mas redonda o mas cuadrada*/
     border-radius: 20px;
