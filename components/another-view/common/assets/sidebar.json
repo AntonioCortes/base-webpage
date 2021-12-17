@@ -1,0 +1,34 @@
+{
+    "page-content" : [
+        {
+            "text" : "Submenu 1",
+            "content" : [
+                {
+                    "text" : "content 1",
+                    "content" : "anotherView.paths.content1"
+                }
+            ]
+
+        },
+        {
+            "text" : "Submenu 2",
+            "content" : [
+                {
+                    "text" : "content 2",
+                    "content" : "anotherView.paths.content2"
+                }
+            ]
+
+        }
+    ],
+    "links" : [
+        {
+            "text" : "Download Source",
+            "href" : "https://bootstrapious.com/tutorial/files/sidebar.zip"
+        },
+        {
+            "text" : "Bootstrap Sidebar",
+            "href" : "https://bootstrapious.com/p/bootstrap-sidebar"
+        }
+    ]
+}

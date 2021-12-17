@@ -1,7 +1,8 @@
 {
     "common" : {
         "paths" : {
-            "navbar" : "components/common/navbar.html"
+            "navbar" : "components/common/navbar.html",
+            "sidebar" : "components/common/sidebar.html"
         }
     },
     "mainView" : {
