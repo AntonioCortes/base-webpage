@@ -16,16 +16,6 @@ $(document).ready(function ()
 	});
 });
 
-function toggleSidebar()
-{
-    $('#sidebar').toggleClass('active');
-}
-
-function toggleNavbar() 
-{
-	$('#navbarNavAltMarkup').toggleClass('show');
-}
-
 function getConstant(constantKey)
 {
 	const splittedConstantKey = constantKey.split('.');
@@ -67,8 +57,6 @@ function changeContent(contentKey)
 			window.highlightJsBadge(options);
 		}, 10);
 
-		
-
 		if("js" in component)
 		{
 			$.getScript(component.basePath + '/' + component.js);
@@ -104,20 +92,11 @@ function changeView(viewKey)
 	const view = getConstant(viewKey);
 	$('#nav-topic').text(view.topic);
 	$('#logo').attr('src', view.paths.logo);	
-	$('#sidebar').load(view.paths.sidebar, function()
+	$('#sidebar').load(constants.common.paths.sidebar, function()
 	{
 		$('#sidebar-header').text(view.topic);
+		addSidebarContent(view);
 	});
 
 	changeContent(viewKey + '.paths.' + view.mainContent)
-}
-
-function hideMenuForMobile()
-{
-	(window.innerWidth <= 992)?toggleSidebar():'';
-}
-
-function hideNavBarForMobile() 
-{
-	(window.innerWidth <= 992)?toggleNavbar():'';
 }
