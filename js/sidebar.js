@@ -18,7 +18,6 @@ function addSidebarContent(view)
     $.getJSON(sidebarJsonPath, function(sidebarJson) 
     {
         const pageContentList = sidebarJson.pageContent;
-        const linkList = sidebarJson.links;
         const pageContent = $('#page-content');
         
         for(const content of pageContentList)
@@ -26,8 +25,9 @@ function addSidebarContent(view)
             addContentElement(pageContent, content);
         }
 
-        if(linkList.length > 0)
+        if('links' in sidebarJson && sidebarJson.links.length > 0)
         {
+            const linkList = sidebarJson.links;
             const divider = $('<div>').attr('name', 'divider');
 
             pageContent.append(divider);
