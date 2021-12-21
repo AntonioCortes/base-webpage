@@ -2,6 +2,7 @@
     "pageContent" : [
         {
             "text" : "Submenu 1",
+            "contentId" : "submenu-1",
             "content" : [
                 {
                     "text" : "content 1",
@@ -16,6 +17,7 @@
         },
         {
             "text" : "Submenu 2",
+            "contentId" : "submenu-2",
             "content" : [
                 {
                     "text" : "content 3",

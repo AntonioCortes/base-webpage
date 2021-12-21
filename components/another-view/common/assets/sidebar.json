@@ -1,17 +1,18 @@
 {
-    "page-content" : [
+    "pageContent" : [
         {
             "text" : "Submenu 1",
+            "contentId" : "submenu-1",
             "content" : [
                 {
                     "text" : "content 1",
                     "content" : "anotherView.paths.content1"
                 }
             ]
-
         },
         {
             "text" : "Submenu 2",
+            "contentId" : "submenu-1",
             "content" : [
                 {
                     "text" : "content 2",

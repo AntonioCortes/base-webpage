@@ -32,7 +32,7 @@ function getConstant(constantKey)
 function changeContent(contentKey)
 {
 	const component = getConstant(contentKey)
-	if("css" in component)
+	if('css' in component)
 	{
 		$('#component-css').attr('href', component.basePath + '/' + component.css);
 	}

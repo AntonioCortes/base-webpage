@@ -20,16 +20,19 @@ function addSidebarContent(view)
         const pageContentList = sidebarJson.pageContent;
         const linkList = sidebarJson.links;
         const pageContent = $('#page-content');
-        const links = $('#links');
-
+        
         for(const content of pageContentList)
         {
             addContentElement(pageContent, content);
         }
 
-        for(const link of linkList)
+        if(linkList.length > 0)
         {
-            addLink(links, link);
+            const divider = $('<div>').attr('name', 'divider');
+
+            pageContent.append(divider);
+
+            addLinks(pageContent, linkList);
         }
     });
 }
@@ -38,44 +41,72 @@ function addContentElement(parentElement, content)
 {
     if(Array.isArray(content.content))
     {
-        /*const a = document.createElement('a');
-        a.setAttribute('data-bs-toggle', 'collapse');
-        a.href = '#collapse1';
-        a.setAttribute('role', 'button');
-        a.setAttribute('aria-expanded', 'true');
-        a.setAttribute('aria-controls', 'collapse1');
-        a.innerText = content.text;*/
-        
-        /*const img = document.createElement('img');
-        img.name = 'arrow_menu';
-
-        a.appendChild(img);
-        parentElement.append(a);*/
-        /*const a = $('<a>', {
-            'data-bs-toggle': 'collapse',
-            href: '#collapse1',
-            role: 'button',
-            'aria-expanded': 'collapse',
-            'aria-controls': 'collapse1',
-            innerText: content.text,
-        });*/
+        const li = $('<li>');
         const a = $('<a>')
-        .attr('href', '#')
-        .text('Ejemplo');
-        parentElement.append(a);
+                    .attr('data-bs-toggle', 'collapse')
+                    .attr('href', '#' + content.contentId)
+                    .attr('role', 'button')
+                    .attr('aria-expanded', 'false')
+                    .attr('aria-controls', content.contentId)
+                    .text(content.text);   
+        
+        const img = $('<img>').attr('name', 'arrow_menu');
 
-        console.log(parentElement);
-        console.log(a);
+        const ul = $('<ul>')
+                    .attr('id', content.contentId)
+                    .addClass('collapse show list-unstyled');
 
-
+        for(contentElement of content.content)
+        {
+            addContentElement(ul, contentElement);
+        }
+        
+        a.append(img);
+        li.append(a);
+        li.append(ul);
+        parentElement.append(li);
     }
     else
     {
+        const li = $('<li>').attr('onclick', 'hideMenuForMobile()')
+        const a = $('<a>').text(content.text);
+
+        if('href' in content)
+        {
+            a.attr('href', content.href);
+        }
+        else
+        {
+            a.attr('href', '#')
+             .attr('onclick', "changeContent('" + content.content + "')")
+        }
+
+        li.append(a);
+        parentElement.append(li);
     }
 }
 
-function addLink(parentElement, link)
+function addLinks(parentElement, linkList)
 {
+    const li = $('<li>');
+    const a = $('<a>')
+                .attr('data-bs-toggle', 'collapse')
+                .attr('href', '#collapse-links')
+                .attr('role', 'button')
+                .attr('aria-expanded', 'true')
+                .attr('aria-controls', 'collapse-links')
+                .text('Links');
+    
+    const ul = $('<ul>')
+                .attr('id', 'collapse-links')  
+                .addClass('collapse show list-unstyled'); 
 
+    for(const link of linkList)
+    {
+        addContentElement(ul, link);
+    }
+
+    li.append(a);
+    li.append(ul);
+    parentElement.append(li);
 }
-
