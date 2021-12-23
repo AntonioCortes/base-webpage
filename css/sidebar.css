@@ -83,6 +83,10 @@ ul.CTAs a {
     margin-bottom: 5px;
 }
 
+.padding-3 {
+    padding: 3px;
+}
+
 /* ---------------------------------------------------
     MEDIAQUERIES
 ----------------------------------------------------- */
@@ -115,7 +119,7 @@ img[name="arrow_menu"]{
     /* y aquí cambias el color de la flechita!!!!!!!! :D */
     background-color: white;
     /*si quieres puedes cambiar la flechita aqui :) */
-    content: url("../assets/vendor/bootstrap-icons/1.7.0/arrow-right-short.svg");
+    content: url("../components/common/assets/svg/simple-arrow.svg");
     margin: 5px;
     /*aquí si la quuieres mas redonda o mas cuadrada*/
     border-radius: 20px;

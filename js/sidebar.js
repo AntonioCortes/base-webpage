@@ -46,7 +46,7 @@ function addContentElement(parentElement, content)
                     .attr('data-bs-toggle', 'collapse')
                     .attr('href', '#' + content.contentId)
                     .attr('role', 'button')
-                    .attr('aria-expanded', 'false')
+                    .attr('aria-expanded', 'true')
                     .attr('aria-controls', content.contentId)
                     .text(content.text);   
         
