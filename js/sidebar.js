@@ -110,3 +110,28 @@ function addLinks(parentElement, linkList)
     li.append(ul);
     parentElement.append(li);
 }
+
+function filterMenus()
+{
+    const searchedText = $('#searchbar').val();
+    
+    $('#page-content [href="#"], #collapse-links a').each(function() 
+    {
+        if ($(this).text().toLowerCase().search(searchedText.toLowerCase()) > -1) 
+        {
+            $(this).show();
+
+            $('[href="#' + this.parentElement.parentElement.id + '"]').each(function()
+            {
+                if($(this).attr('aria-expanded') === 'false')
+                {
+                    this.click();
+                }
+            });
+        }
+        else 
+        {
+            $(this).hide();
+        }
+    });
+}
