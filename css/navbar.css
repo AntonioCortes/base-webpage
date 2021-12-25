@@ -1,6 +1,7 @@
-.navbar{
+.navbar {
     z-index: 2;
 }
+
 .brand-container {
     width: 240px;
     display: flex;
