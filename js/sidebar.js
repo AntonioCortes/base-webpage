@@ -96,6 +96,8 @@ function addLinks(parentElement, linkList)
                 .attr('aria-expanded', 'true')
                 .attr('aria-controls', 'collapse-links')
                 .text('Links');
+            
+    const img = $('<img>').attr('name', 'arrow_menu');
     
     const ul = $('<ul>')
                 .attr('id', 'collapse-links')  
@@ -106,6 +108,7 @@ function addLinks(parentElement, linkList)
         addContentElement(ul, link);
     }
 
+    a.append(img);
     li.append(a);
     li.append(ul);
     parentElement.append(li);
