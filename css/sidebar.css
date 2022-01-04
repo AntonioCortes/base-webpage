@@ -123,16 +123,15 @@ ul.CTAs a {
 
 /*como me borres esto te aniquilo*/
 /*===========================================================*/
-img[name="arrow_menu"]{
+img[name="arrow_menu"] {
     /* y aquí cambias el color de la flechita!!!!!!!! :D */
     background-color: white;
-    /*si quieres puedes cambiar la flechita aqui :) */
-    content: url("../components/common/assets/svg/simple-arrow.svg");
     margin: 5px;
     /*aquí si la quuieres mas redonda o mas cuadrada*/
     border-radius: 20px;
     /*aquí el tamaño de la flecha*/
     height: 20px;
+    width: 20px;
     transition: transform .35s ease;
 }
 

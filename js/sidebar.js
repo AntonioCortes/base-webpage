@@ -7,7 +7,7 @@ function addSidebarContent(view)
 {
     const sidebarJsonPath = view.paths.sidebar;
     
-    addNavbarLinks()
+    addNavbarLinks();
 
     $.getJSON(sidebarJsonPath, function(sidebarJson) 
     {
@@ -44,7 +44,9 @@ function addContentElement(parentElement, content)
                     .attr('aria-controls', content.contentId)
                     .text(content.text);   
         
-        const img = $('<img>').attr('name', 'arrow_menu');
+        const img = $('<img>')
+                        .attr('name', 'arrow_menu')
+                        .attr('src', 'components/common/assets/svg/simple-arrow.svg');
 
         const ul = $('<ul>')
                     .attr('id', content.contentId)
@@ -91,7 +93,9 @@ function addLinks(parentElement, linkList)
                 .attr('aria-controls', 'collapse-links')
                 .text('Links');
             
-    const img = $('<img>').attr('name', 'arrow_menu');
+    const img = $('<img>')
+                    .attr('name', 'arrow_menu')
+                    .attr('src', 'components/common/assets/svg/simple-arrow.svg');
     
     const ul = $('<ul>')
                 .attr('id', 'collapse-links')  
