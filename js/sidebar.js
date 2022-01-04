@@ -3,18 +3,12 @@ function toggleSidebar()
     $('#sidebar').toggleClass('active');
 }
 
-function hideMenuForMobile()
-{
-	if(window.innerWidth <= 992)
-    {
-        toggleSidebar()
-    };
-}
-
 function addSidebarContent(view)
 {
     const sidebarJsonPath = view.paths.sidebar;
     
+    addNavbarLinks()
+
     $.getJSON(sidebarJsonPath, function(sidebarJson) 
     {
         const pageContentList = sidebarJson.pageContent;
@@ -68,7 +62,7 @@ function addContentElement(parentElement, content)
     }
     else
     {
-        const li = $('<li>').attr('onclick', 'hideMenuForMobile()')
+        const li = $('<li>');
         const a = $('<a>').text(content.text);
 
         if('href' in content)
@@ -78,7 +72,7 @@ function addContentElement(parentElement, content)
         else
         {
             a.attr('href', '#')
-             .attr('onclick', "changeContent('" + content.content + "')")
+             .attr('onclick', "changeContent('" + content.content + "')");
         }
 
         li.append(a);
@@ -112,6 +106,24 @@ function addLinks(parentElement, linkList)
     li.append(a);
     li.append(ul);
     parentElement.append(li);
+}
+
+function addNavbarLinks() //add navbar links to sidebar
+{ 
+    const ul = $('#sidebar-navlinks-ul');
+
+    $('#navbar-navlinks > a').each(function ()
+    {
+        const a = $('<a>')
+                    .attr('href', $(this).attr('href'))
+                    .attr('onclick', $(this).attr('onclick'))
+                    .text($(this).text());
+
+        const li = $('<li>');
+
+        li.append(a);
+        ul.append(li);
+    });
 }
 
 function filterMenus()

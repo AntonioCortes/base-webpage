@@ -43,6 +43,11 @@ function changeContent(contentKey)
 
 	$('#content').load(component.basePath + '/' + component.html, function()
 	{
+		if(window.innerWidth <= 992)
+		{
+			toggleSidebar()
+		};
+		
 		$('[data-bs-toggle="tooltip"]').tooltip();  
 		addCodeLineNumbers();
 
@@ -98,5 +103,5 @@ function changeView(viewKey)
 		addSidebarContent(view);
 	});
 
-	changeContent(viewKey + '.paths.' + view.mainContent)
+	changeContent(viewKey + '.paths.' + view.mainContent);
 }

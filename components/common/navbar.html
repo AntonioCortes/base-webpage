@@ -11,14 +11,10 @@
             <a id="nav-topic" class="navbar-brand" href="#" onclick="changeView('mainView')"></a>
         </div>
         
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="#" onclick="changeView('mainView');hideNavBarForMobile()">Main View</a>
-                <a class="nav-link active" href="#" onclick="changeView('anotherView');hideNavBarForMobile()">Another View</a>
+            <div id="navbar-navlinks" class="navbar-nav">
+                <a class="nav-link active" aria-current="page" href="#" onclick="changeView('mainView')">Main View</a>
+                <a class="nav-link active" href="#" onclick="changeView('anotherView')">Another View</a>
             </div>
         </div>
     </div>
