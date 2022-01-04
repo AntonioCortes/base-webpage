@@ -109,6 +109,16 @@ ul.CTAs a {
     #sidebarCollapse span {
         display: none;
     }
+
+    #sidebar-navlinks {
+        display: block;
+    }
+}
+
+@media (min-width: 992px) {
+    #sidebar-navlinks {
+        display: none;
+    }
 }
 
 /*como me borres esto te aniquilo*/
