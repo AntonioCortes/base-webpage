@@ -42,11 +42,6 @@ a:focus {
     justify-content: space-between;
 }
 
-#sidebar ul li a:hover {
-    color: #7386D5;
-    background: #fff;
-}
-
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
     color: #fff;
@@ -118,6 +113,11 @@ ul.CTAs a {
 @media (min-width: 992px) {
     #sidebar-navlinks {
         display: none;
+    }
+
+    #sidebar ul li a:hover {
+        color: #7386D5;
+        background: #fff;
     }
 }
 
