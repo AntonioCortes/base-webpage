@@ -100,7 +100,7 @@ function changeView(viewKey)
 
 	$('#sidebar').load(constants.common.paths.sidebar, function()
 	{
-		window.onresize = function()
+		window.onresize = function ()
 		{
 			if(window.innerWidth <= 992)
 			{
@@ -111,6 +111,14 @@ function changeView(viewKey)
 				showSidebar();
 			}
 		}
+
+		$('#content').click(function ()
+		{
+			if(window.innerWidth <= 992)
+			{
+				hideSidebar();
+			}
+		});
 
 		$('#sidebar-header').text(view.topic);
 		addSidebarContent(view);
