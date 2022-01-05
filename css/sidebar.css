@@ -17,10 +17,6 @@ a:focus {
     overflow: auto;
 }
 
-#sidebar.active {
-    margin-left: -250px;
-}
-
 #sidebar .sidebar-header {
     padding: 20px;
 }
@@ -59,6 +55,14 @@ a[data-toggle="collapse"] {
     transform: translateY(-50%);
 }
 
+#sidebar.show {
+    margin-left: 0px;
+}
+
+#sidebar.hide {
+    margin-left: -250px;
+}
+
 ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
@@ -91,14 +95,7 @@ ul.CTAs a {
         max-width: 250px;
         height: 100%;
         position: fixed;
-        /*top: 0;*/
         left: 0;
-        /* top layer */
-        /*z-index: 9999;*/
-    }
-
-    #sidebar.active {
-        margin-left: 0;
     }
     
     #sidebarCollapse span {

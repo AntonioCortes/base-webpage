@@ -1,6 +1,29 @@
 function toggleSidebar()
 {
-    $('#sidebar').toggleClass('active');
+    $('#sidebar').toggleClass('hide');
+    $('#sidebar').toggleClass('show');
+}
+
+function showSidebar()
+{
+    const sidebar = $('#sidebar');
+
+    if(sidebar.attr('class') !== undefined && sidebar.attr('class').split(/\s+/).includes('hide'))
+    {
+        sidebar.removeClass('hide');
+        sidebar.addClass('show');    
+    }
+}
+
+function hideSidebar()
+{
+    const sidebar = $('#sidebar');
+
+    if(sidebar.attr('class') === undefined || !sidebar.attr('class').split(/\s+/).includes('hide'))
+    {
+        sidebar.removeClass('show');
+        sidebar.addClass('hide');
+    }
 }
 
 function addSidebarContent(view)

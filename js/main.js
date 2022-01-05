@@ -10,9 +10,9 @@ $(document).ready(function ()
 		{
 			$('#nav-topic').text(constants.mainView.topic);		
 			$('#logo').attr('src', constants.mainView.paths.logo);
-		});
 
-		changeView('mainView');
+			changeView('mainView');
+		});
 	});
 });
 
@@ -43,11 +43,6 @@ function changeContent(contentKey)
 
 	$('#content').load(component.basePath + '/' + component.html, function()
 	{
-		if(window.innerWidth <= 992)
-		{
-			toggleSidebar()
-		};
-		
 		$('[data-bs-toggle="tooltip"]').tooltip();  
 		addCodeLineNumbers();
 
@@ -96,9 +91,27 @@ function changeView(viewKey)
 {
 	const view = getConstant(viewKey);
 	$('#nav-topic').text(view.topic);
-	$('#logo').attr('src', view.paths.logo);	
+	$('#logo').attr('src', view.paths.logo);	 
+
+	if(window.innerWidth <= 992)
+	{
+		hideSidebar();
+	}
+
 	$('#sidebar').load(constants.common.paths.sidebar, function()
 	{
+		window.onresize = function()
+		{
+			if(window.innerWidth <= 992)
+			{
+				hideSidebar();
+			}
+			else
+			{
+				showSidebar();
+			}
+		}
+
 		$('#sidebar-header').text(view.topic);
 		addSidebarContent(view);
 	});
