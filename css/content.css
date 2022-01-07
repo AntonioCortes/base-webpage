@@ -11,6 +11,11 @@
     overflow: auto;
 }
 
+#content h1{
+    padding-bottom: 60px;
+    padding-top: 60px;
+}
+
 #content h2, 
 #content h3 {
     padding-bottom: 40px;
@@ -29,6 +34,13 @@
     display: inline-flex;
     text-align: left;
     overflow: auto;
+}
+
+.title {
+    display: block;
+    margin: auto;
+    text-align: center;
+    font-size: 60px;
 }
 
 .padding-14 {
