@@ -1,4 +1,5 @@
 let constants = null;
+const mainView = 'mainView';
 
 $(document).ready(function () 
 {
@@ -8,10 +9,7 @@ $(document).ready(function ()
 
 		$('#navbar').load(constants.common.paths.navbar, function()
 		{
-			$('#nav-topic').text(constants.mainView.topic);		
-			$('#logo').attr('src', constants.mainView.paths.logo);
-
-			changeView('mainView');
+			changeView(mainView);
 		});
 	});
 });
@@ -91,7 +89,11 @@ function changeView(viewKey)
 {
 	const view = getConstant(viewKey);
 	$('#nav-topic').text(view.topic);
-	$('#logo').attr('src', view.paths.logo);	 
+
+	if('logo' in view.paths)
+	{
+		$('#logo').attr('src', view.paths.logo);
+	}	 
 
 	if(window.innerWidth <= 992)
 	{
