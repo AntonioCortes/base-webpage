@@ -1,7 +1,7 @@
 <h1 class="title">Title</h1>
 <h2>1. Content 1 title</h2>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p><b>Lorem</b> ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quasi distinctio, dignissimos eum harum quam provident nulla ab perferendis sequi non nemo? Ab, aliquid! Vitae possimus sint quisquam totam corporis.</p>
 
 <h3>1.1. Content 1 subtitle</h3>
@@ -63,9 +63,40 @@ public class HelloWorld
 		System.out.println("This is a hello world in Java");
 	}
 }
+
 </code></pre>
 </div>
 <span class="center-horizontal caption">Example Code</span>
+
+<h3>Another piece of code</h3>
+
+<div class="center-horizontal">
+<pre><code class="language-java">
+@ApiOperation(value = "pet shop", notes = "pet shop")
+@PostMapping
+@ApiResponses({ @ApiResponse(code = 201, message = "No content")})
+public ResponseEntity< Object> post(final HttpServletResponse pResponse, final HttpServletRequest pRequest,
+		@RequestBody @Valid final PetDTO petDTO) {
+
+	Optional< Pet> PetOp = petService.findById(petDTO.getIdPet());
+	if(petOp.isPresent())
+	{
+		LOGGER.error(ConstantsMessages.POST, ConstantsMessages.PET, petDTO.getId(), ConstantsMessages.ERROR_ALREADY_EXISTS);
+		throw new UniqueConstraintException(ConstantsMessages.ERROR_ALREADY_EXISTS);
+	}
+	
+	Pet pet = mapper.map(petDTO, Pet.class);
+	pet = petService.save(pet);
+	LOGGER.debug(ConstantsMessages.POST, ConstantsMessages.PET, pet.getId(), ConstantsMessages.OK);
+		
+	URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().pathSegment(String.format("%s", pet.getId())).build().toUri();
+	HttpHeaders headers = new HttpHeaders();
+	headers.setLocation(uri);
+	return new ResponseEntity<>(headers, HttpStatus.CREATED);
+}
+</code></pre>	
+</div>
+<span class="center-horizontal caption">Post method in controller ecxample</span>
 
 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla corrupti aperiam quam voluptatem eum, adipisci modi voluptates sunt voluptatum nisi fuga recusandae error explicabo quos eos quidem consequatur voluptatibus. Repudiandae.</p>
 
@@ -75,3 +106,10 @@ public class HelloWorld
 
 <img class="center-horizontal" src="components/main-view/content-1/assets/gif/bootstrap.gif">
 <span class="center-horizontal caption">Example GIF</span>
+
+<h3>1.6 This is a list</h3>
+
+<ul>
+	<li><b>Element title:</b> Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, reiciendis illo voluptatum ipsam architecto velit vitae nam quis similique alias dolor suscipit quod esse eligendi. Quia ipsam quo possimus eius.</li>
+	<li><b>Element title:</b> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore reprehenderit doloremque amet maxime labore est delectus similique. Dolorum vitae nulla saepe. Repellendus, quidem libero. In voluptas quas ea nesciunt illo.</li>
+</ul>
