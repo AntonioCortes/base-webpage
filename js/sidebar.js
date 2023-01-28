@@ -37,10 +37,10 @@ function addSidebarContent(view)
         const pageContentList = sidebarJson.pageContent;
         const pageContent = $('#page-content');
         
-        for(const content of pageContentList)
-        {
-            addContentElement(pageContent, content);
-        }
+        pageContentList.forEach(function(content, index) {
+            const isCollapsed = index > 0;
+            addContentElement(pageContent, content, isCollapsed);
+        });
 
         if('links' in sidebarJson && sidebarJson.links.length > 0)
         {
@@ -54,7 +54,7 @@ function addSidebarContent(view)
     });
 }
 
-function addContentElement(parentElement, content)
+function addContentElement(parentElement, content, isCollapsed)
 {
     if(Array.isArray(content.content))
     {
@@ -75,9 +75,14 @@ function addContentElement(parentElement, content)
                     .attr('id', content.contentId)
                     .addClass('collapse show list-unstyled');
 
+        if(isCollapsed) {
+            a.attr('aria-expanded', false);
+            ul.removeClass('show');
+        }              
+
         for(contentElement of content.content)
         {
-            addContentElement(ul, contentElement);
+            addContentElement(ul, contentElement, isCollapsed);
         }
         
         a.append(img);
