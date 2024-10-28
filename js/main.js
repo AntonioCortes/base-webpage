@@ -7,8 +7,9 @@ $(document).ready(function ()
 	{
 		constants = json;
 
-		$('#navbar').load(constants.common.paths.navbar, function()
+		$.get(constants.common.paths.navbar, function(navbarHTML)
 		{
+			$('body').prepend(navbarHTML);
 			changeView(mainView);
 		});
 	});

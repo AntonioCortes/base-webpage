@@ -1,58 +1,98 @@
-
-a,
-a:hover,
-a:focus {
-    color: inherit;
-    text-decoration: none;
-    transition: all 0.3s;
-}
-
 #sidebar {
     z-index: 1;
     min-width: 250px;
     max-width: 250px;
-    background: #7386D5;
-    color: #fff;
+    background: var(--sidebar-background-color);
+    color: var(--sidebar-item-color);
     transition: all 0.3s;
     overflow: auto;
-}
 
-#sidebar .sidebar-header {
-    padding: 20px;
-}
+    .sidebar-header {
+        padding: 20px;
+    }
 
-#sidebar ul.components {
-    padding: 20px 0;
-    border-bottom: 1px solid #47748b;
-}
+    a,
+    a:hover,
+    a:focus {
+        color: inherit;
+        text-decoration: none;
+        transition: all 0.3s;
+    }
 
-#sidebar ul p {
-    color: #fff;
-    padding: 10px;
-}
+    ul.components {
+        padding: 20px 0;
+    }
 
-#sidebar ul li a {
-    padding: 10px;
-    font-size: 1.1em;
-    display: flex;
-    justify-content: space-between;
-}
+    ul {
+        p {
+            padding: 10px;
+        }
 
-#sidebar ul li.active>a,
-a[aria-expanded="true"] {
-    color: #fff;
-}
+        li a {
+            padding: 10px;
+            font-size: 1.1em;
+            display: flex;
+            justify-content: space-between;
+        }
+    }
 
-a[data-toggle="collapse"] {
-    position: relative;
-}
+    a[data-toggle="collapse"] {
+        position: relative;
+    }
+    
+    .dropdown-toggle::after {
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+    }
+    
+    ul ul a {
+        font-size: 0.9em !important;
+        padding-left: 60px !important;
+    }
+    
+    ul.CTAs {
+        padding: 20px;
+    
+        a {
+            text-align: center;
+            font-size: 0.9em !important;
+            display: block;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+    }
 
-.dropdown-toggle::after {
-    display: block;
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
+    /*como me borres esto te aniquilo*/
+    /*===========================================================*/
+    img[name="arrow_menu"] {
+        /* y aquí cambias el color de la flechita!!!!!!!! :D */
+        background-color: var(--arrow-image-background-color);
+        margin: 5px;
+        /*aquí si la quuieres mas redonda o mas cuadrada*/
+        border-radius: 20px;
+        /*aquí el tamaño de la flecha*/
+        height: 20px;
+        width: 20px;
+        transition: transform .35s ease;
+    }
+
+    a[aria-expanded="true"] img[name="arrow_menu"]{
+        transform:rotate(90deg);
+    }
+    /*===========================================================*/
+
+    /*=========DIVIDER=========*/
+    div[name="divider"]{
+        display: block;
+        background-color: var(--divider-backfround-color);
+        height: 1px;
+        width: 100%;
+        margin: 10px 0px;
+    }
+    /*=========================*/
 }
 
 #sidebar.show {
@@ -61,28 +101,6 @@ a[data-toggle="collapse"] {
 
 #sidebar.hide {
     margin-left: -250px;
-}
-
-ul ul a {
-    font-size: 0.9em !important;
-    padding-left: 30px !important;
-}
-
-ul ul a {
-    font-size: 0.9em !important;
-    padding-left: 60px !important;
-}
-
-ul.CTAs {
-    padding: 20px;
-}
-
-ul.CTAs a {
-    text-align: center;
-    font-size: 0.9em !important;
-    display: block;
-    border-radius: 5px;
-    margin-bottom: 5px;
 }
 
 .padding-5 {
@@ -118,36 +136,7 @@ ul.CTAs a {
     }
 
     #sidebar ul li a:hover {
-        color: #7386D5;
-        background: #fff;
+        color: var(--sidebar-background-color);
+        background: var(--sidebar-item-color);
     }
 }
-
-/*como me borres esto te aniquilo*/
-/*===========================================================*/
-img[name="arrow_menu"] {
-    /* y aquí cambias el color de la flechita!!!!!!!! :D */
-    background-color: white;
-    margin: 5px;
-    /*aquí si la quuieres mas redonda o mas cuadrada*/
-    border-radius: 20px;
-    /*aquí el tamaño de la flecha*/
-    height: 20px;
-    width: 20px;
-    transition: transform .35s ease;
-}
-
-a[aria-expanded="true"] img[name="arrow_menu"]{
-    transform:rotate(90deg);
-}
-/*===========================================================*/
-
-/*=========DIVIDER=========*/
-div[name="divider"]{
-    display: block;
-    background-color: lightgrey;
-    height: 1px;
-    width: 100%;
-    margin: 10px 0px;
-}
-/*=========================*/

@@ -6,7 +6,7 @@ body {
     padding-top: 66px;
 }
 
-main {
+.wrapper {
     height: 100%;
     display: flex;
     width: 100%;
