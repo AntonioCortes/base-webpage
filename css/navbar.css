@@ -19,5 +19,5 @@
 
 #sidebarCollapse > i {
     font-size: 2rem;
-    color: white;
+    color: var(--navbar-color);
 }
