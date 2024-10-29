@@ -3,15 +3,11 @@ const mainView = 'mainView';
 
 $(document).ready(function () 
 {
-	$.getJSON("assets/constants.json", function (json) 
+	$.getJSON("components/common/assets/constants.json", function (json) 
 	{
 		constants = json;
 
-		$.get(constants.common.paths.navbar, function(navbarHTML)
-		{
-			$('body').prepend(navbarHTML);
-			changeView(mainView);
-		});
+		populateNavbar();
 	});
 });
 
@@ -101,6 +97,36 @@ function changeView(viewKey)
 		hideSidebar();
 	}
 
+	populateSidebar(view);
+
+	changeContent(viewKey + '.paths.' + view.mainContent);
+}
+
+function populateNavbar() 
+{
+	$.get(constants.common.paths.navbar, function(navbarHTML)
+	{
+		$('body').prepend(navbarHTML);
+
+		for(constant in constants) {
+			if(constant !== 'common') {
+				const navbarLink = $('<a>')
+									.addClass('nav-link active')
+									.attr('href', '#')
+									.attr('onclick', `changeView('${constant}')`)
+									.text(constants[constant].topic);
+
+				$('#navbar-navlinks')
+					.append(navbarLink);
+			}
+		}
+
+		changeView(mainView);
+	});
+}
+
+function populateSidebar(view) 
+{
 	$('#sidebar').load(constants.common.paths.sidebar, function()
 	{
 		window.onresize = function ()
@@ -126,6 +152,4 @@ function changeView(viewKey)
 		$('#sidebar-header').text(view.topic);
 		addSidebarContent(view);
 	});
-
-	changeContent(viewKey + '.paths.' + view.mainContent);
 }
