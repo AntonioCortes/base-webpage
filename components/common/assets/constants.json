@@ -36,6 +36,7 @@
     "anotherView" : {
         "topic" : "Another Topic",
         "mainContent" : "content1",
+        "basePath" : "components/another-view",
         "paths" : {
             "logo" : "components/another-view/common/assets/img/bootstrap-4.svg",
             "sidebar" : "components/another-view/common/assets/sidebar.json",
