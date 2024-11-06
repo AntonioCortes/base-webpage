@@ -9,8 +9,7 @@
         "topic" : "Main Topic",
         "mainContent" : "content1",
         "paths" : {
-            "logo" : "components/main-view/common/assets/img/bootstrap.svg",
-            "sidebar" : "components/main-view/common/assets/sidebar.json",
+            "basePath" : "components/main-view",
             "content1" : {
                 "basePath" : "components/main-view/content-1",
                 "html" : "content-1.html",
@@ -36,10 +35,8 @@
     "anotherView" : {
         "topic" : "Another Topic",
         "mainContent" : "content1",
-        "basePath" : "components/another-view",
         "paths" : {
-            "logo" : "components/another-view/common/assets/img/bootstrap-4.svg",
-            "sidebar" : "components/another-view/common/assets/sidebar.json",
+            "basePath" : "components/another-view",
             "content1" : {
                 "basePath" : "components/another-view/content-1",
                 "html" : "content-1.html" 

@@ -50,10 +50,13 @@
     
     ul ul a {
         font-size: 0.9em !important;
-        padding-left: 60px !important;
     }
     
-    ul.CTAs {
+    ul ul ul a {
+        font-size: 0.9em !important;
+    }
+    
+    ul.CTAs {  
         padding: 20px;
     
         a {

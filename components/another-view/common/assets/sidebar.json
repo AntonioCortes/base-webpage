@@ -5,8 +5,18 @@
             "contentId" : "submenu-1",
             "content" : [
                 {
-                    "text" : "content 1",
-                    "content" : "anotherView.paths.content1"
+                    "text" : "Grouped content",
+                    "contentId" : "grouped-content-1",
+                    "content" : [
+                        {
+                            "text" : "content 1",
+                            "content" : "anotherView.paths.content1"
+                        },
+                        {
+                            "text" : "content 2",
+                            "content" : "anotherView.paths.content2"
+                        }
+                    ]
                 }
             ]
         },

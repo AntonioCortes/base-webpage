@@ -87,10 +87,14 @@ function changeView(viewKey)
 	const view = getConstant(viewKey);
 	$('#nav-topic').text(view.topic);
 
-	if('logo' in view.paths)
-	{
-		$('#logo').attr('src', view.paths.logo);
-	}	 
+	const logoUrl = view.paths.basePath + '/common/assets/img/logo.svg';
+	$.ajax({
+		url: logoUrl ,
+		type: 'HEAD',
+		success: function() {
+			$('#logo').attr('src', logoUrl);
+		}
+	});
 
 	if(window.innerWidth <= 992)
 	{

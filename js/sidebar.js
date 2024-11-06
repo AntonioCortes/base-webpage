@@ -1,3 +1,5 @@
+const initialPaddingLeft = 0;
+
 function toggleSidebar()
 {
     $('#sidebar').toggleClass('hide');
@@ -28,7 +30,7 @@ function hideSidebar()
 
 function addSidebarContent(view)
 {
-    const sidebarJsonPath = view.paths.sidebar;
+    const sidebarJsonPath = view.paths.basePath + '/common/assets/sidebar.json';
     
     addNavbarLinks();
 
@@ -39,7 +41,7 @@ function addSidebarContent(view)
         
         pageContentList.forEach(function(content, index) {
             const isCollapsed = index > 0;
-            addContentElement(pageContent, content, isCollapsed);
+            addContentElement(pageContent, content, isCollapsed, initialPaddingLeft);
         });
 
         if('links' in sidebarJson && sidebarJson.links.length > 0)
@@ -54,8 +56,10 @@ function addSidebarContent(view)
     });
 }
 
-function addContentElement(parentElement, content, isCollapsed)
+function addContentElement(parentElement, content, isCollapsed, paddingLeft)
 {
+    const nextPaddingLeft = paddingLeft + 30;
+
     if(Array.isArray(content.content))
     {
         const li = $('<li>');
@@ -65,6 +69,7 @@ function addContentElement(parentElement, content, isCollapsed)
                     .attr('role', 'button')
                     .attr('aria-expanded', 'true')
                     .attr('aria-controls', content.contentId)
+                    .css({ 'padding-left' : `${paddingLeft}px`})
                     .text(content.text);   
         
         const img = $('<img>')
@@ -80,9 +85,9 @@ function addContentElement(parentElement, content, isCollapsed)
             ul.removeClass('show');
         }              
 
-        for(contentElement of content.content)
+        for(const contentElement of content.content)
         {
-            addContentElement(ul, contentElement, isCollapsed);
+            addContentElement(ul, contentElement, isCollapsed, nextPaddingLeft);
         }
         
         a.append(img);
@@ -93,7 +98,9 @@ function addContentElement(parentElement, content, isCollapsed)
     else
     {
         const li = $('<li>');
-        const a = $('<a>').text(content.text);
+        const a = $('<a>')
+                    .text(content.text)
+                    .css({ 'padding-left' : `${nextPaddingLeft}px`});
 
         if('href' in content)
         {
@@ -131,7 +138,7 @@ function addLinks(parentElement, linkList)
 
     for(const link of linkList)
     {
-        addContentElement(ul, link);
+        addContentElement(ul, link, initialPaddingLeft);
     }
 
     a.append(img);
