@@ -181,7 +181,8 @@ function addNavbarLinks() //add navbar links to sidebar
         const a = $('<a>')
                     .attr('href', $(this).attr('href'))
                     .attr('onclick', $(this).attr('onclick'))
-                    .text($(this).text());
+                    .text($(this).text())
+                    .css( { 'padding-left' : `${initialPaddingLeft}px` } );
 
         const li = $('<li>');
 

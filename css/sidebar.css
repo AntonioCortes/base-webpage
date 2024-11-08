@@ -56,6 +56,10 @@
         background-color: var(--sidebar-link-background-color);
     }
 
+    #sidebar-navlinks a:nth-child(2) {
+        padding-left: 10px;
+    }
+
     /*como me borres esto te aniquilo*/
     /*===========================================================*/
     img[name="arrow_menu"] {
