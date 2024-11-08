@@ -2,11 +2,50 @@
     "pageContent" : [
         {
             "text" : "Submenu 1",
-            "contentId" : "submenu-1",
             "content" : [
                 {
                     "text" : "content 1",
                     "content" : "mainView.paths.content1"
+                },
+                {
+                    "text" : "Grouped content",
+                    "content" : [
+                        {
+                            "text" : "Another grouped content",
+                            "content" : [
+                                {
+                                    "text" : "content 2",
+                                    "content" : "mainView.paths.content2"
+                                },
+                                {
+                                    "text" : "Deeper grouped content",
+                                    "content" : [
+                                        {
+                                            "text" : "Even deeper grouped content",
+                                            "content" : [
+                                                {
+                                                    "text" : "content 1",
+                                                    "content" : "mainView.paths.content1"
+                                                },
+                                                {
+                                                    "text" : "content 2",
+                                                    "content" : "mainView.paths.content2"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "text" : "content 2",
+                                            "content" : "mainView.paths.content2"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "text" : "content 2",
+                            "content" : "mainView.paths.content2"
+                        }
+                    ]
                 },
                 {
                     "text" : "content 2",
@@ -17,7 +56,6 @@
         },
         {
             "text" : "Submenu 2",
-            "contentId" : "submenu-2",
             "content" : [
                 {
                     "text" : "content 3",

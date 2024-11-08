@@ -1,4 +1,6 @@
-const initialPaddingLeft = 0;
+const initialPaddingLeft = 10;
+const innerElementsPaddingLeft = 10;
+let contentIdCount = 0;
 
 function toggleSidebar()
 {
@@ -51,33 +53,45 @@ function addSidebarContent(view)
 
             pageContent.append(divider);
 
-            addLinks(pageContent, linkList);
+            addLinks(pageContent, linkList, initialPaddingLeft);
         }
     });
 }
 
 function addContentElement(parentElement, content, isCollapsed, paddingLeft)
 {
-    const nextPaddingLeft = paddingLeft + 30;
+    const nextPaddingLeft = paddingLeft + innerElementsPaddingLeft;
+    contentIdCount++;
 
     if(Array.isArray(content.content))
     {
+        const contentId = `${content.text.replaceAll(' ', '-')}-${contentIdCount}`;
+
         const li = $('<li>');
         const a = $('<a>')
                     .attr('data-bs-toggle', 'collapse')
-                    .attr('href', '#' + content.contentId)
+                    .attr('href', '#' + contentId)
                     .attr('role', 'button')
                     .attr('aria-expanded', 'true')
-                    .attr('aria-controls', content.contentId)
+                    .attr('aria-controls', contentId)
                     .css({ 'padding-left' : `${paddingLeft}px`})
-                    .text(content.text);   
+                    .text(content.text);
+                    
+        if(initialPaddingLeft === paddingLeft) 
+        {
+            a.addClass('primary-a');
+        } 
+        else 
+        {
+            a.addClass('secondary-a');
+        }
         
         const img = $('<img>')
                         .attr('name', 'arrow_menu')
                         .attr('src', 'components/common/assets/svg/simple-arrow.svg');
 
         const ul = $('<ul>')
-                    .attr('id', content.contentId)
+                    .attr('id', contentId)
                     .addClass('collapse show list-unstyled');
 
         if(isCollapsed) {
@@ -87,7 +101,7 @@ function addContentElement(parentElement, content, isCollapsed, paddingLeft)
 
         for(const contentElement of content.content)
         {
-            addContentElement(ul, contentElement, isCollapsed, nextPaddingLeft);
+            addContentElement(ul, contentElement, true, nextPaddingLeft);
         }
         
         a.append(img);
@@ -100,7 +114,16 @@ function addContentElement(parentElement, content, isCollapsed, paddingLeft)
         const li = $('<li>');
         const a = $('<a>')
                     .text(content.text)
-                    .css({ 'padding-left' : `${nextPaddingLeft}px`});
+                    .css( { 'padding-left' : `${paddingLeft}px` } );
+
+        if(initialPaddingLeft === paddingLeft) 
+        {
+            a.addClass('primary-a');
+        } 
+        else 
+        {
+            a.addClass('secondary-a');
+        }
 
         if('href' in content)
         {
@@ -109,7 +132,8 @@ function addContentElement(parentElement, content, isCollapsed, paddingLeft)
         else
         {
             a.attr('href', '#')
-             .attr('onclick', "changeContent('" + content.content + "')");
+             .attr('onclick', "changeContent('" + content.content + "')")
+             .addClass('link');
         }
 
         li.append(a);
@@ -117,7 +141,7 @@ function addContentElement(parentElement, content, isCollapsed, paddingLeft)
     }
 }
 
-function addLinks(parentElement, linkList)
+function addLinks(parentElement, linkList, paddingLeft)
 {
     const li = $('<li>');
     const a = $('<a>')
@@ -126,6 +150,7 @@ function addLinks(parentElement, linkList)
                 .attr('role', 'button')
                 .attr('aria-expanded', 'true')
                 .attr('aria-controls', 'collapse-links')
+                .css( { 'padding-left' : `${paddingLeft}px` } )
                 .text('Links');
             
     const img = $('<img>')
@@ -138,7 +163,7 @@ function addLinks(parentElement, linkList)
 
     for(const link of linkList)
     {
-        addContentElement(ul, link, initialPaddingLeft);
+        addContentElement(ul, link, false, paddingLeft);
     }
 
     a.append(img);

@@ -1,7 +1,8 @@
 :root {
-    --sidebar-background-color: #7386D5;
-    --sidebar-item-color: #fff;
-    --divider-backfround-color: lightgrey;
-    --arrow-image-background-color: #fff;
     --navbar-color: white;
+    --sidebar-background-color: #0c669e;
+    --sidebar-item-color: var(--navbar-color);
+    --divider-background-color: lightgrey;
+    --arrow-image-background-color: var(--navbar-color);
+    --sidebar-link-background-color: var(--sidebar-background-color);
 }

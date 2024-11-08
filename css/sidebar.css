@@ -11,6 +11,10 @@
         padding: 20px;
     }
 
+    #page-content > li:first-child {
+        padding: 5px;
+    }
+
     a,
     a:hover,
     a:focus {
@@ -19,21 +23,13 @@
         transition: all 0.3s;
     }
 
-    ul.components {
-        padding: 20px 0;
-    }
-
-    ul {
-        p {
-            padding: 10px;
-        }
-
-        li a {
-            padding: 10px;
-            font-size: 1.1em;
-            display: flex;
-            justify-content: space-between;
-        }
+    ul li a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-right: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
     a[data-toggle="collapse"] {
@@ -47,30 +43,23 @@
         right: 20px;
         transform: translateY(-50%);
     }
-    
-    ul ul a {
-        font-size: 0.9em !important;
+
+    .primary-a {
+        font-size: 1.1em;
     }
-    
-    ul ul ul a {
-        font-size: 0.9em !important;
+
+    .secondary-a {
+        font-size: 0.9em;
     }
-    
-    ul.CTAs {  
-        padding: 20px;
-    
-        a {
-            text-align: center;
-            font-size: 0.9em !important;
-            display: block;
-            border-radius: 5px;
-            margin-bottom: 5px;
-        }
+
+    .link {
+        background-color: var(--sidebar-link-background-color);
     }
 
     /*como me borres esto te aniquilo*/
     /*===========================================================*/
     img[name="arrow_menu"] {
+        font-size: 1.1em;
         /* y aquí cambias el color de la flechita!!!!!!!! :D */
         background-color: var(--arrow-image-background-color);
         margin: 5px;
@@ -90,7 +79,7 @@
     /*=========DIVIDER=========*/
     div[name="divider"]{
         display: block;
-        background-color: var(--divider-backfround-color);
+        background-color: var(--divider-background-color);
         height: 1px;
         width: 100%;
         margin: 10px 0px;
@@ -104,10 +93,6 @@
 
 #sidebar.hide {
     margin-left: -250px;
-}
-
-.padding-5 {
-    padding: 5px;
 }
 
 /* ---------------------------------------------------
