@@ -26,37 +26,44 @@ function getConstant(constantKey)
 
 function changeContent(contentKey)
 {
-	const component = getConstant(contentKey)
-	if('css' in component)
+	if(contentKey.includes('.')) 
 	{
-		$('#component-css').attr('href', component.basePath + '/' + component.css);
+		const component = getConstant(contentKey)
+		if('css' in component)
+		{
+			$('#component-css').attr('href', component.basePath + '/' + component.css);
+		}
+		else
+		{
+			$('#component-css').attr('href', '');
+		}
+
+		$('#content').load(component.basePath + '/' + component.html, function()
+		{
+			$('[data-bs-toggle="tooltip"]').tooltip();  
+			addCodeLineNumbers();
+
+			setTimeout(function () 
+			{
+				hljs.highlightAll();
+
+				const options = {
+					copyIconClass: "bi bi-files",
+					checkIconClass: "bi bi-check-lg text-success",
+				};
+				window.highlightJsBadge(options);
+			}, 10);
+
+			if("js" in component)
+			{
+				$.getScript(component.basePath + '/' + component.js);
+			}
+		});
 	}
 	else
 	{
-		$('#component-css').attr('href', '');
+		$('#content').html(`<${contentKey}></${contentKey}>`);
 	}
-
-	$('#content').load(component.basePath + '/' + component.html, function()
-	{
-		$('[data-bs-toggle="tooltip"]').tooltip();  
-		addCodeLineNumbers();
-
-		setTimeout(function () 
-		{
-			hljs.highlightAll();
-
-			const options = {
-				copyIconClass: "bi bi-files",
-				checkIconClass: "bi bi-check-lg text-success",
-			};
-			window.highlightJsBadge(options);
-		}, 10);
-
-		if("js" in component)
-		{
-			$.getScript(component.basePath + '/' + component.js);
-		}
-	});
 }
 
 function addCodeLineNumbers()
@@ -103,7 +110,9 @@ function changeView(viewKey)
 
 	populateSidebar(view);
 
-	changeContent(viewKey + '.paths.' + view.mainContent);
+	const viewPathsKeyList = Object.keys(view.paths).filter(key => key !== 'basePath');
+
+	changeContent(viewKey + '.paths.' + viewPathsKeyList[0]);
 }
 
 function populateNavbar() 

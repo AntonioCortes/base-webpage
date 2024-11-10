@@ -7,13 +7,11 @@
     },
     "mainView" : {
         "topic" : "Main Topic",
-        "mainContent" : "content1",
         "paths" : {
             "basePath" : "components/main-view",
             "content1" : {
                 "basePath" : "components/main-view/content-1",
                 "html" : "content-1.html",
-                "css" : "content-1.css",
                 "js" : "content-1.js"
             },
             "content2" : {
@@ -34,7 +32,6 @@
     },
     "anotherView" : {
         "topic" : "Another Topic",
-        "mainContent" : "content1",
         "paths" : {
             "basePath" : "components/another-view",
             "content1" : {

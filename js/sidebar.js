@@ -116,14 +116,7 @@ function addContentElement(parentElement, content, isCollapsed, paddingLeft)
                     .text(content.text)
                     .css( { 'padding-left' : `${paddingLeft}px` } );
 
-        if(initialPaddingLeft === paddingLeft) 
-        {
-            a.addClass('primary-a');
-        } 
-        else 
-        {
-            a.addClass('secondary-a');
-        }
+        a.addClass(initialPaddingLeft === paddingLeft ? 'primary-a' : 'secondary-a');            
 
         if('href' in content)
         {
@@ -132,7 +125,7 @@ function addContentElement(parentElement, content, isCollapsed, paddingLeft)
         else
         {
             a.attr('href', '#')
-             .attr('onclick', "changeContent('" + content.content + "')")
+             .attr('onclick', `changeContent('${content.content}')`)
              .addClass('link');
         }
 
