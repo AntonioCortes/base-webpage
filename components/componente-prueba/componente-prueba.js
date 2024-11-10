@@ -1,4 +1,4 @@
-/*class ComponentePrueba extends HTMLElement {
+class ComponentePrueba extends HTMLElement {
   
     connectedCallback() {
         const baseUrl = import.meta.url.substring(0, import.meta.url.lastIndexOf('/') + 1);
@@ -9,4 +9,4 @@
     }
   }
   
-  customElements.define('componente-prueba', ComponentePrueba);*/
+  customElements.define('componente-prueba', ComponentePrueba);
