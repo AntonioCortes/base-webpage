@@ -5,7 +5,7 @@
             "content" : [
                 {
                     "text" : "content 1",
-                    "content" : "mainView.paths.content1"
+                    "content" : "component-content-1"
                 },
                 {
                     "text" : "Grouped content",
@@ -15,7 +15,7 @@
                             "content" : [
                                 {
                                     "text" : "content 2",
-                                    "content" : "mainView.paths.content2"
+                                    "content" : "component-content-2"
                                 },
                                 {
                                     "text" : "Deeper grouped content",
@@ -25,17 +25,17 @@
                                             "content" : [
                                                 {
                                                     "text" : "content 1",
-                                                    "content" : "mainView.paths.content1"
+                                                    "content" : "component-content-1"
                                                 },
                                                 {
                                                     "text" : "content 2",
-                                                    "content" : "mainView.paths.content2"
+                                                    "content" : "component-content-2"
                                                 }
                                             ]
                                         },
                                         {
                                             "text" : "content 2",
-                                            "content" : "mainView.paths.content2"
+                                            "content" : "component-content-2"
                                         }
                                     ]
                                 }
@@ -43,13 +43,13 @@
                         },
                         {
                             "text" : "content 2",
-                            "content" : "mainView.paths.content2"
+                            "content" : "component-content-2"
                         }
                     ]
                 },
                 {
                     "text" : "content 2",
-                    "content" : "mainView.paths.content2"
+                    "content" : "component-content-2"
                 }
             ]
 
@@ -59,11 +59,11 @@
             "content" : [
                 {
                     "text" : "content 3",
-                    "content" : "mainView.paths.content3"
+                    "content" : "component-content-3"
                 },
                 {
                     "text" : "content 4",
-                    "content" : "mainView.paths.content4"
+                    "content" : "component-content-4"
                 }
             ]
 

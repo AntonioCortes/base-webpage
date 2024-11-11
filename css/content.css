@@ -12,13 +12,11 @@
     overflow: auto;
 
     h1{
-        padding-bottom: 60px;
-        padding-top: 60px;
+        padding: 60px 0;
     }
 
     h2,h3, h4, h5, h6 {
-        padding-bottom: 40px;
-        padding-top: 40px;
+        padding: 40px 0;
     }
 
     p, li {

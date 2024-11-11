@@ -8,26 +8,7 @@
     "mainView" : {
         "topic" : "Main Topic",
         "paths" : {
-            "basePath" : "components/main-view",
-            "content1" : {
-                "basePath" : "components/main-view/content-1",
-                "html" : "content-1.html",
-                "js" : "content-1.js"
-            },
-            "content2" : {
-                "basePath" : "components/main-view/content-2",
-                "html" : "content-2.html",
-                "css" : "content-2.css",
-                "js" : "content-2.js"
-            },
-            "content3" : {
-                "basePath" : "components/main-view/content-3",
-                "html" : "content-3.html" 
-            },
-            "content4" : {
-                "basePath" : "components/main-view/content-4",
-                "html" : "content-4.html" 
-            }
+            "basePath" : "components/main-view"
         }
     },
     "anotherView" : {

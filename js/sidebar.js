@@ -55,7 +55,16 @@ function addSidebarContent(view)
 
             addLinks(pageContent, linkList, initialPaddingLeft);
         }
+
+        changeContent(getFirstContent(pageContentList));
     });
+}
+
+function getFirstContent(content) 
+{
+    return !Array.isArray(content)
+                ? content
+                : getFirstContent(content[0].content);
 }
 
 function addContentElement(parentElement, content, isCollapsed, paddingLeft)
@@ -207,4 +216,70 @@ function filterMenus()
             $(this).hide();
         }
     });
+}
+
+function changeContent(contentKey)
+{
+	if(contentKey.includes('.')) 
+	{
+		const component = getConstant(contentKey)
+		$('#component-css').attr('href', '');
+
+
+		$('#content').load(component.basePath + '/' + component.html, function()
+		{
+			highlihtCode();
+
+			if("js" in component)
+			{
+				$.getScript(component.basePath + '/' + component.js);
+			}
+		});
+	}
+	else
+	{
+		$('#content').html(`<${contentKey}></${contentKey}>`);
+
+		highlihtCode();
+	}
+}
+
+function addCodeLineNumbers()
+{
+	$.each($('code'), function() {
+		this.innerHTML = this.innerHTML.trim();
+
+		const lineCount = this.innerHTML.match(/[^\n]*\n[^\n]*/gi).length
+		
+		const div = document.createElement('div');
+		div.classList.add('hljs');
+		div.classList.add('padding-14');
+
+		for(let i = 1; i < lineCount + 2; i++)
+		{
+			const div2 = document.createElement('div');
+
+			div2.innerText = i;
+			div.appendChild(div2);
+		}
+
+		this.parentElement.insertBefore(div, this);
+	});
+}
+
+function highlihtCode() {
+	console.log('CODIGO HIGHTLIGHTEADO')
+	$('[data-bs-toggle="tooltip"]').tooltip();  
+	addCodeLineNumbers();
+
+	setTimeout(function () 
+	{
+		hljs.highlightAll();
+
+		const options = {
+			copyIconClass: "bi bi-files",
+			checkIconClass: "bi bi-check-lg text-success",
+		};
+		window.highlightJsBadge(options);
+	}, 500);
 }
