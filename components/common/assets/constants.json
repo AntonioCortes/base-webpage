@@ -7,9 +7,7 @@
     },
     "mainView" : {
         "topic" : "Main Topic",
-        "paths" : {
-            "basePath" : "components/main-view"
-        }
+        "basePath" : "components/main-view"
     },
     "anotherView" : {
         "topic" : "Another Topic",

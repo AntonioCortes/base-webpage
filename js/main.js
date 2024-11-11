@@ -29,7 +29,9 @@ function changeView(viewKey)
 	const view = getConstant(viewKey);
 	$('#nav-topic').text(view.topic);
 
-	const logoUrl = view.paths.basePath + '/common/assets/img/logo.svg';
+	const logoUrl = 'basePath' in view
+				? view.basePath + '/common/assets/img/logo.svg' 
+				: view.paths.basePath + '/common/assets/img/logo.svg';
 	$.ajax({
 		url: logoUrl ,
 		type: 'HEAD',

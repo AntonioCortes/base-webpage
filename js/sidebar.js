@@ -32,7 +32,9 @@ function hideSidebar()
 
 function addSidebarContent(view)
 {
-    const sidebarJsonPath = view.paths.basePath + '/common/assets/sidebar.json';
+    const sidebarJsonPath = 'basePath' in view
+                ? view.basePath + '/common/assets/sidebar.json'
+                : view.paths.basePath + '/common/assets/sidebar.json';
     
     addNavbarLinks();
 
@@ -240,14 +242,16 @@ function changeContent(contentKey)
 	{
 		$('#content').html(`<${contentKey}></${contentKey}>`);
 
+        scapeAngleBrackets();
 		highlihtCode();
 	}
 }
 
 function addCodeLineNumbers()
 {
-	$.each($('code'), function() {
-		this.innerHTML = this.innerHTML.trim();
+    console.log($('code'));
+    $('code').each( function(index, code) {
+		code.innerHTML = code.innerHTML.trim();
 
 		const lineCount = this.innerHTML.match(/[^\n]*\n[^\n]*/gi).length
 		
@@ -263,14 +267,24 @@ function addCodeLineNumbers()
 			div.appendChild(div2);
 		}
 
-		this.parentElement.insertBefore(div, this);
+		code.parentElement.insertBefore(div, code);
 	});
 }
 
+function scapeAngleBrackets() {
+    $('code').each(function(index, code) {
+        code.innerText = code.innerText
+                            .replace('<', '&lt;')
+                            .replace('>', '&gt;');
+
+        console.log(code.innerHTML)
+
+    });
+}
+
 function highlihtCode() {
-	console.log('CODIGO HIGHTLIGHTEADO')
+    
 	$('[data-bs-toggle="tooltip"]').tooltip();  
-	addCodeLineNumbers();
 
 	setTimeout(function () 
 	{
@@ -281,5 +295,7 @@ function highlihtCode() {
 			checkIconClass: "bi bi-check-lg text-success",
 		};
 		window.highlightJsBadge(options);
-	}, 500);
+
+        addCodeLineNumbers();
+	}, 100);
 }

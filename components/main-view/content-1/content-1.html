@@ -79,7 +79,7 @@ public class HelloWorld
 @ApiOperation(value = "pet shop", notes = "pet shop")
 @PostMapping
 @ApiResponses({ @ApiResponse(code = 201, message = "No content")})
-public ResponseEntity< Object> &lt;meh&gt;post(final HttpServletResponse pResponse, final HttpServletRequest pRequest,
+public ResponseEntity< Object></Object> post(final HttpServletResponse pResponse, final HttpServletRequest pRequest,
 		@RequestBody @Valid final PetDTO petDTO) {
 
 	Optional< Pet> PetOp = petService.findById(petDTO.getIdPet());
