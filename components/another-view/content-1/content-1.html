@@ -1,1 +1,29 @@
 <h2>Content 1 in another view</h2>
+
+<div class="center-horizontal">
+<pre><code class="language-java">
+@ApiOperation(value = "pet shop", notes = "pet shop")
+@PostMapping
+@ApiResponses({ @ApiResponse(code = 201, message = "No content")})
+public ResponseEntity<Object> post(final HttpServletResponse pResponse, final HttpServletRequest pRequest,
+        @RequestBody @Valid final PetDTO petDTO) {
+
+    Optional<Pet> PetOp = petService.findById(petDTO.getIdPet());
+    if(petOp.isPresent())
+    {
+        LOGGER.error(ConstantsMessages.POST, ConstantsMessages.PET, petDTO.getId(), ConstantsMessages.ERROR_ALREADY_EXISTS);
+        throw new UniqueConstraintException(ConstantsMessages.ERROR_ALREADY_EXISTS);
+    }
+    
+    Pet pet = mapper.map(petDTO, Pet.class);
+    pet = petService.save(pet);
+    LOGGER.debug(ConstantsMessages.POST, ConstantsMessages.PET, pet.getId(), ConstantsMessages.OK);
+        
+    URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().pathSegment(String.format("%s", pet.getId())).build().toUri();
+    HttpHeaders headers = new HttpHeaders();
+    headers.setLocation(uri);
+    return new ResponseEntity<>(headers, HttpStatus.CREATED);
+}
+</code></pre>	
+</div>
+<span class="center-horizontal caption">Post method in controller example</span>

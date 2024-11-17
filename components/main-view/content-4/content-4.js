@@ -1,12 +1,4 @@
-class Content4 extends HTMLElement {
-  
-    connectedCallback() {
-        const baseUrl = import.meta.url.substring(0, import.meta.url.lastIndexOf('/') + 1);
-        
-        fetch(baseUrl + 'content-4.html')
-            .then(response => response.text())
-            .then(html => this.innerHTML = html);
-    }
-}
+import { createComponent } from "../../../js/component-generator.js";
 
-customElements.define('component-content-4', Content4);
+const baseUrl = import.meta.url.substring(0, import.meta.url.lastIndexOf('/') + 1);
+createComponent('component-content-4', baseUrl + 'content-4.html');

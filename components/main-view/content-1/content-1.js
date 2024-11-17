@@ -1,12 +1,4 @@
-class Content1 extends HTMLElement {
-  
-    connectedCallback() {
-        const baseUrl = import.meta.url.substring(0, import.meta.url.lastIndexOf('/') + 1);
-        
-        fetch(baseUrl + 'content-1.html')
-            .then(response => response.text())
-            .then(html => this.innerHTML = html);
-    }
-  }
-  
-  customElements.define('component-content-1', Content1);
+import { createComponent } from "../../../js/component-generator.js";
+
+const baseUrl = import.meta.url.substring(0, import.meta.url.lastIndexOf('/') + 1);
+createComponent('component-content-1', baseUrl + 'content-1.html');

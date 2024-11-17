@@ -79,10 +79,10 @@ public class HelloWorld
 @ApiOperation(value = "pet shop", notes = "pet shop")
 @PostMapping
 @ApiResponses({ @ApiResponse(code = 201, message = "No content")})
-public ResponseEntity< Object></Object> post(final HttpServletResponse pResponse, final HttpServletRequest pRequest,
+public ResponseEntity<Object> post(final HttpServletResponse pResponse, final HttpServletRequest pRequest,
 		@RequestBody @Valid final PetDTO petDTO) {
 
-	Optional< Pet> PetOp = petService.findById(petDTO.getIdPet());
+	Optional<Pet> PetOp = petService.findById(petDTO.getIdPet());
 	if(petOp.isPresent())
 	{
 		LOGGER.error(ConstantsMessages.POST, ConstantsMessages.PET, petDTO.getId(), ConstantsMessages.ERROR_ALREADY_EXISTS);
@@ -100,7 +100,7 @@ public ResponseEntity< Object></Object> post(final HttpServletResponse pResponse
 }
 </code></pre>	
 </div>
-<span class="center-horizontal caption">Post method in controller ecxample</span>
+<span class="center-horizontal caption">Post method in controller example</span>
 
 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla corrupti aperiam quam voluptatem eum, adipisci modi voluptates sunt voluptatum nisi fuga recusandae error explicabo quos eos quidem consequatur voluptatibus. Repudiandae.</p>
 
