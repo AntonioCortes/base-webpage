@@ -32,7 +32,7 @@ function hideSidebar()
 
 function addSidebarContent(view)
 {
-    const sidebarJsonPath = 'basePath' in view
+    const sidebarJsonPath = 'basePath' in view //TODO: BORRAR ESTA TERNARIA CUANDO ESTÉ TODO PASADO AL SISTEMA DE WEBCOMPONENTS
                 ? view.basePath + '/common/assets/sidebar.json'
                 : view.paths.basePath + '/common/assets/sidebar.json';
     
@@ -222,24 +222,82 @@ function filterMenus()
 
 function changeContent(contentKey)
 {
-	if(contentKey.includes('.')) 
+	if(contentKey.includes('.')) //TODO: BORRAR ESTE IF CUANDO ESTÉN TODO PASADO AL MODELO DE WEBCOMPONENTS
 	{
 		const component = getConstant(contentKey)
 		$('#component-css').attr('href', '');
 
+        fetch(component.basePath + '/' + component.html)
+            .then(response => response.text())
+            .then(html => {
 
-		$('#content').load(component.basePath + '/' + component.html, function()
-		{
-			highlihtCode();
+                $('#content')
+                    .html(scapeAngleBrackets(html))
 
-			if("js" in component)
-			{
-				$.getScript(component.basePath + '/' + component.js);
-			}
-		});
+                highlightCode();
+
+                if("js" in component)
+                {
+                    $.getScript(component.basePath + '/' + component.js);
+                }
+                
+            });
 	}
 	else
 	{
 		$('#content').html(`<${contentKey}></${contentKey}>`);
 	}
 }
+
+//TODO: BORRAR CUANDO ESTÉ TODO PASADO A WEBCOMPONENTS
+function scapeAngleBrackets(html) 
+{
+    return html.replace(/<code\b[^>]*>([\s\S]*?)<\/code>/g, function (match, codeContent)
+        {
+            const escapedContent = codeContent.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            return `<code>${escapedContent}</code>`;
+        }
+    );
+}
+
+function addCodeLineNumbers()
+{
+    $('code').each( function(index, code) {
+        code.innerHTML = code.innerHTML.trim();
+
+        const lineCount = this.innerHTML.match(/[^\n]*\n[^\n]*/gi).length
+        
+        const div = document.createElement('div');
+        div.classList.add('hljs');
+        div.classList.add('padding-14');
+
+        for(let i = 1; i < lineCount + 2; i++)
+        {
+            const div2 = document.createElement('div');
+
+            div2.innerText = i;
+            div.appendChild(div2);
+        }
+
+        code.parentElement.insertBefore(div, code);
+    });
+}
+
+function highlightCode() 
+{       
+    $('[data-bs-toggle="tooltip"]').tooltip();  
+
+    setTimeout(function () 
+    {
+        hljs.highlightAll();
+
+        const options = {
+            copyIconClass: "bi bi-files",
+            checkIconClass: "bi bi-check-lg text-success",
+        };
+        window.highlightJsBadge(options);
+
+        this.addCodeLineNumbers();
+    }.bind(this), 50);
+}
+    
