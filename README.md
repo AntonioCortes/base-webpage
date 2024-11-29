@@ -18,7 +18,7 @@ Todo el contenido de la página irá dentro de la carpeta components.
 
 - Por último dentro de cada una de estas carpetas que representan cada enlace del nabvar, habrá una carpeta common donde se guardará el logo de esa página y un json definirá los enlaces que aparecerán en el sidebar de esa página. A parte de la carpeta common, también se encontrarán las carpetas que representarán a cada uno de los componentes a los que se podrá acceder desde los enlaces del sidebar.
 
-![Main view folder structure](img/main-view-folder-structure.png)
+    ![Main view folder structure](img/main-view-folder-structure.png)
 
 Esta es la estructura de carpetas de la vista "Main view"
 
@@ -38,7 +38,35 @@ Al cargar una vista se cargará el primer componente que esté definido en el si
 
 ## Cómo crear un componente
 
-Dentro de la carpeta components, está la carpeta common, necesaria para el correcto funcionamiento de la página.
+1. En primer lugar se deberá crear una carpeta padre donde se guardarán varios componentes que tengan que ver con el mismo tema.  
 
-Para crear un grupo de componentes que pertenecen a una misma página
+    >[!NOTE]
+    > Por ejemplo, si vamos a hablar de bootstrap y vamos a hacer un componente que habla sobe el origen de bootstrap y otro componente que habla sobre como usar bootstrap, dentro de la carpeta components se creará una carpeta llamada bootstrap dentro de la cual se creará una carpeta common y a parte una carpeta por cada componente.  
+    ![Component creation folder structure](img/component-creation-folder-structure.png) 
+
+2. En segundo lugar, dentro de la carpeta del componente, hay que crear un html y un js
+    
+    ![Component files](img/component-files.png)
+
+    1. HTML: En este archivo se escribirá el html que se quiera que se renderice en la siguiente zona de la pantalla
+    ![Main content area](img/main-content-area.png)
+
+    2. JS: En este archivo se creará el webcomponent a nivel de javascript y se establecerá cual será el nombre de etiqueta del componente
+
+    ```javascript
+    import { createComponent } from "../../../js/component-generator.js";
+
+    const tagName = 'component-bootstrap-origin';
+    const htmlFilename = 'origen.html';
+
+    const baseUrl = import.meta.url.substring(0, import.meta.url.lastIndexOf('/') + 1);
+    createComponentent(tagName, baseUrl + htmlFilename);
+    ```
+
+    >[!TIP]
+    > Se debe copiar siempre este código y sustiruir el valor de "tagName" por el nombre de etiqueta que se le quiera dar al webcomponent (nombre inventado pero que empiece por la palabra component) y se debe sustituir el valor de "htmlFileName" por el nombre del html que corresponda a dicho componente.  
+    > También cambiará la ruta relativa del import del component-generator dependiendo de donde estemos creando el nuevo componente
+    
+
+
 
