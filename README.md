@@ -82,7 +82,7 @@ Todo el contenido de la página irá dentro de la carpeta components.
     2. JS: En este archivo se creará el webcomponent a nivel de javascript y se establecerá cual será el nombre de etiqueta del componente
 
      >[!TIP]
-    > - Se debe copiar siempre este código y sustituir el valor de "tagName" por el nombre de etiqueta que se le quiera dar al webcomponent (nombre inventado pero que empiece por la palabra component) y se debe sustituir el valor de "htmlFileName" por el nombre del html que corresponda a dicho componente.  
+    > - Se debe copiar siempre este código y sustituir el valor de `tagName` por el nombre de etiqueta que se le quiera dar al webcomponent (nombre inventado pero que empiece por la palabra component) y se debe sustituir el valor de `htmlFileName` por el nombre del html que corresponda a dicho componente.  
     > - También cambiará la ruta relativa del import del component-generator dependiendo de donde estemos creando el nuevo componente
 
     ```javascript
