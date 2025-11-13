@@ -1,6 +1,20 @@
 # Modo de uso
 
-# TODO: GLOSARIO DE TERMINOS E IMAGEN EXPLICATIVA
+## Esquema básico de la página
+
+La página se compone de los siguientes elementos:
+
+- `Navbar`: barra superior de navegación, al pulsar los enlaces se podrá cambiar de `vista`
+
+- `Sidebar`: barra lateral de navegación, al pulsar los enlaces se podrá cambiar de `contenido`
+
+- `Contenido`: html que se renderiza en la parte principal de la página. En esta sección se pondrá lainformación de lo que se quiera explicar, imágenes etc. En cada `contenido` se tratará un tema concreto. A nivel técnico los distintos contenidos seran componentes creados con WebComponents de javascript.
+
+- `Vista`: Engloba el `sidebar` y el `contenido`, cada vista tendrá un sidebar diferente y varios contenidos accesibles desde el sidebar. En cada vista se tratará un tema genérico.
+
+- `Icono de la vista`: Icono que aparecerá en la `navbar`y que irá cambiando con cada vista.
+
+![Page Scheme](img/base-page-scheme.png)
 
 ## Estructura de carpetas
 
@@ -12,7 +26,7 @@ Todo el contenido de la página irá dentro de la carpeta components.
   
 - Dentro de la carpeta common, el único archivo que hay que modificar es el archivo `components/common/assets/constants.json`
 
-- Por otra parte, al mismo nivel que la carpeta common, se encuentran las carpetas que representarán el contenido de cada uno de los enlaces que aparecen en el `navbar` y al que llamaremos `vistas`:
+- Por otra parte, al mismo nivel que la carpeta common, se encuentran las carpetas que representarán el contenido de cada uno de los enlaces que aparecen en el `navbar` y al que llamaremos `vistas`
 
 >[!NOTE]
 > - En este ejemplo se pueden ver dos enlaces en el `navbar`: Main Topic y Another Topic.  
@@ -24,7 +38,7 @@ Todo el contenido de la página irá dentro de la carpeta components.
 
 - Por último, dentro de cada carpeta de `vista`, se encontrarán las siguientes carpetas:
   
-  1. common: Dentro de esta carpeta se encontrarán el icono de la vista y el json que definirá los enlaces que aparecen en el sidebar y que llevarán a cada uno de los `contenidos`
+  1. common: Dentro de esta carpeta se encontrarán el icono de la vista y el json que definirá los enlaces que aparecen en el `sidebar` y que llevarán a cada uno de los `contenidos`
   
   2. varias carpetas de `contenido`, dentro de las cuales se encontrarán las imágenes utilizadas en dicho contenido, el html del contenido y el js que se encargará de crear el `componente`  
    
@@ -44,23 +58,24 @@ Todo el contenido de la página irá dentro de la carpeta components.
 - Dentro de estas carpetas se encontrarán el `componente` (compuestos por un html y un js) y una carpeta assets, donde se guardarán las imágenes y otros archivos externos que se usarán dentro de este componente
 
 >[!NOTE]
->Al cargar una vista se cargará el primer `contenido` que esté definido en el sidebar, en este caso el contenido 1.
+>Al cargar una vista se cargará el primer `contenido` que esté definido en el sidebar, en este caso el content-1.
 
 ![Main content example](img/main-content-example.png)
 
 ## Cómo crear un componente
 
-1. En primer lugar se deberá crear una carpeta padre donde se guardarán varios componentes que tengan que ver con el mismo tema.  
+1. En primer lugar se deberá crear una carpeta de `vista` donde se guardarán varios `contenidos` que tengan que ver con el mismo tema.  
 
     >[!NOTE]
-    > Por ejemplo, si vamos a hablar de bootstrap y vamos a hacer un componente que habla sobe el origen de bootstrap y otro componente que habla sobre como usar bootstrap, dentro de la carpeta components se creará una carpeta llamada bootstrap dentro de la cual se creará una carpeta common y a parte una carpeta por cada componente.  
-    ![Component creation folder structure](img/component-creation-folder-structure.png) 
+    > Por ejemplo, si vamos a hablar de bootstrap y vamos a hacer un `contenido` que habla sobe el origen de bootstrap y otro `contenido` que habla sobre como usar bootstrap, dentro de la carpeta components se creará una carpeta llamada bootstrap dentro de la cual se creará una carpeta common y a parte una carpeta por cada `contenido`.
+    >  
+    >![Component creation folder structure](img/component-creation-folder-structure.png) 
 
-2. En segundo lugar, dentro de la carpeta del componente, hay que crear un html y un js
+2. En segundo lugar, dentro de la carpeta del `contenido`, hay que crear un html y un js
     
     ![Component files](img/component-files.png)
 
-    1. HTML: En este archivo se escribirá el html que se quiera que se renderice en la siguiente zona de la pantalla
+    1. HTML: En este archivo se escribirá el html que se quiera que renderizará en la siguiente zona de la pantalla
    
         ![Main content area](img/main-content-area.png)
 
