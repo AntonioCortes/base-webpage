@@ -1,5 +1,17 @@
 # Modo de uso
 
+## Índice
+
+- [Modo de uso](#modo-de-uso)
+  - [Índice](#índice)
+  - [Esquema básico de la página](#esquema-básico-de-la-página)
+  - [Estructura de carpetas](#estructura-de-carpetas)
+    - [Estructura de carpetas de una `vista`. Ejemplo: "Main view"](#estructura-de-carpetas-de-una-vista-ejemplo-main-view)
+  - [Cómo crear una vista](#cómo-crear-una-vista)
+  - [Cómo crear un contenido (componente)](#cómo-crear-un-contenido-componente)
+  - [Añadir un enlace del componente recién creado al sidebar](#añadir-un-enlace-del-componente-recién-creado-al-sidebar)
+
+
 ## Esquema básico de la página
 
 La página se compone de los siguientes elementos:
@@ -62,7 +74,10 @@ Todo el contenido de la página irá dentro de la carpeta components.
 
 ![Main content example](img/main-content-example.png)
 
-## Cómo crear un componente
+## Cómo crear una vista
+
+
+## Cómo crear un contenido (componente)
 
 1. En primer lugar se deberá crear una carpeta de `vista` donde se guardarán varios `contenidos` que tengan que ver con el mismo tema.  
 
@@ -94,6 +109,9 @@ Todo el contenido de la página irá dentro de la carpeta components.
     const baseUrl = import.meta.url.substring(0, import.meta.url.lastIndexOf('/') + 1);
     createComponentent(tagName, baseUrl + htmlFilename);
     ```
+
+    3. Añadir el nuevo componente creado al archivo components-imports.js
+## Añadir un enlace del componente recién creado al sidebar
     
 
 
