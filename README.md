@@ -111,6 +111,14 @@ Todo el contenido de la página irá dentro de la carpeta components.
     ```
 
     3. Añadir el nuevo componente creado al archivo components-imports.js
+
+        Una vez creado el nuevo WebComponent debe importarse el js que define ese WebComponent mediante una ruta relativa en el archivo `/js/components/imports.js`
+
+        ```javascript
+        //Nuevo componente origen de bootstrap
+        import '../components/bootstrap/origen/origen.js';
+        ```
+        
 ## Añadir un enlace del componente recién creado al sidebar
     
 
