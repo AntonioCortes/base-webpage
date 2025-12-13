@@ -4,4 +4,4 @@ const tagName = 'component-bootstrap-origin';
 const htmlFilename = 'origen.html';
 
 const baseUrl = import.meta.url.substring(0, import.meta.url.lastIndexOf('/') + 1);
-createComponentent(tagName, baseUrl + htmlFilename);
+createComponent(tagName, baseUrl + htmlFilename);

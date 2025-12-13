@@ -5,11 +5,16 @@
             "sidebar" : "components/common/sidebar.html"
         }
     },
+    "nuevaVista" : {
+        "topic" : "Bootstrap (Texto que aparecerá en el navbar)",
+        "basePath" : "components/bootstrap"
+    },
     "mainView" : {
         "topic" : "Main Topic",
         "basePath" : "components/main-view"
     },
     "anotherView" : {
+        "Note": "Esta vista está definida de la manera antigua que sigue siendo soportada por retrocompatibilidad.",
         "topic" : "Another Topic",
         "paths" : {
             "basePath" : "components/another-view",

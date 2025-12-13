@@ -1,4 +1,5 @@
 {
+    "Note": "Este sidebar está definido de la manera antigua que sigue siendo soportada por retrocompatibilidad.",
     "pageContent" : [
         {
             "text" : "Submenu 1",
