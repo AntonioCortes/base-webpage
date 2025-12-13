@@ -6,7 +6,7 @@
   - [Índice](#índice)
   - [Resumen](#resumen)
   - [Anatomía de la página](#anatomía-de-la-página)
-  - [Estructura de carpetas](#estructura-de-carpetas)
+  - [Estructura de carpetas de la página](#estructura-de-carpetas-de-la-página)
     - [Estructura de carpetas de una vista. Ejemplo: "Main view"](#estructura-de-carpetas-de-una-vista-ejemplo-main-view)
   - [Añadir contenido a la página](#añadir-contenido-a-la-página)
     - [Cómo crear una vista](#cómo-crear-una-vista)
@@ -35,7 +35,7 @@ La página se compone de los siguientes elementos:
 
 ![Page Scheme](img/base-page-scheme.png)
 
-## Estructura de carpetas
+## Estructura de carpetas de la página
 
 ![Folder structure](img/folder-structure.png)
 
