@@ -534,6 +534,9 @@ Para añadir un segmento de código a la página, dicho segmento de código de b
 
 - El `code` debe tener la clase `language-<nombre_lenguaje>`
 
+>[!Warning]
+>Para que el fragmento de código se muestre correctamente las identaciones del `div`, `pre` y `code` deben ser como las que se muestran a continuación
+
 ```html
 <div class="center-horizontal">
 <pre><code class="language-java">
