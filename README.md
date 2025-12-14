@@ -11,9 +11,7 @@
   - [Añadir contenido a la página](#añadir-contenido-a-la-página)
     - [Cómo crear una vista](#cómo-crear-una-vista)
     - [Cómo crear un contenido (componente)](#cómo-crear-un-contenido-componente)
-    - [Añadir un enlace del componente recién creado al sidebar](#añadir-un-enlace-del-componente-recién-creado-al-sidebar)
   - [Estilos](#estilos)
-- [TODO: Añadir arquitectura de carpatas en bash en los ejemplos donde solo haya imágenes](#todo-añadir-arquitectura-de-carpatas-en-bash-en-los-ejemplos-donde-solo-haya-imágenes)
 
 ## Resumen
 
@@ -36,6 +34,81 @@ La página se compone de los siguientes elementos:
 ![Page Scheme](img/base-page-scheme.png)
 
 ## Estructura de carpetas de la página
+
+```bash
+/
+|
++-- components
+|   |
+|   +--vista-1
+|   |  |
+|   |  +--common
+|   |  |  |
+|   |  |  +--assets
+|   |  |     |
+|   |  |     +--img
+|   |  |     |  |
+|   |  |     |  +--logo.svg
+|   |  |     |
+|   |  |     +--sidebar.json
+|   |  |
+|   |  +--contenido-1 (componente)
+|   |  |  |
+|   |  |  +--assets (assets del contenido como imágenes o gifs, el contenido puede tener carpeta de assets o no)
+|   |  |  |
+|   |  |  +--contenido-1.html
+|   |  |  |
+|   |  |  +--contenido-1.js
+|   |  |
+|   |  +--contenido-2 (componente)
+|   |  |  |
+|   |  |  ...
+|   |  |
+|   |  ...
+|   |
+|   +--vista-2
+|   |  |
+|   |  ...
+|   ...
+|
++--css
+|  |
+|  +--colors.css
+|  |
+|  +--contents.css
+|  |
+|  +--general-style.css
+|  |
+|  +--navbar.css
+|  |
+|  +--sidebar.css
+|  |
+|  +--styles.css
+|
++--img (imágenes para README)
+|  |
+|  +--imagen-1
+|  |
+|  ...
+|
++--js
+|  |
+|  +--componenet-generator.js (utilidad para generar componentes)
+|  |
+|  +--components-imports.js (Archivo para importar los componentes generados)
+|  |
+|  +--main-js (js para el comportamiento general de la página como la gestión de componentes)
+|  |
+|  +--sidebar.js (js para la gestión del sidebar)
+|
++--vendor (librerías usadas en la página como bootstrap, jquery o highlight)
+|
++--index.html (html principal de la página, no se debe modificar)
+|
++--README.md
+```
+
+Ejemplo estructura de carpetas dentro de components:
 
 ![Folder structure](img/folder-structure.png)
 
@@ -63,6 +136,50 @@ Todo el contenido de la página irá dentro de la carpeta components.
    
 
 ### Estructura de carpetas de una vista. Ejemplo: "Main view"
+
+```bash
+main-view
+|
++--common
+|  |
+|  +--assets
+|     |
+|     +--img
+|     |  |
+|     |  +--logo.svg
+|     |
+|     +--sidebar.json
+|
++--content-1 (componente)
+|  |
+|  +--assets (assets de este contenido como imágenes o gifs, no todos los contenidos tienen assets)
+|  |  |
+|  |  +--gif
+|  |  |  |
+|  |  |  +--gif-1.gif
+|  |  |
+|  |  +--img
+|  |     |
+|  |     +--bootstrap.png
+|  |   
+|  +--content-1.html
+|  |
+|  +--content-1.js
+|
++--content-2 (componente)
+|  |
+|  ...
+|
++--content-3 (componente)
+|  |
+|  ...
+|
++--content-4 (componente)
+   |
+   ...
+```
+
+Imagen de la estructura de carpetas de la vista main view:
 
 ![Main view folder structure](img/main-view-folder-structure.png)
 
@@ -142,7 +259,7 @@ components
 
     Resultado:
 
-    ![Navbar después de añadir la nueva vista](img/navbar-nueva-vista.png)
+    ![Navbar after adding new view](img/navbar-nueva-vista.png)
 
 ### Cómo crear un contenido (componente)
 
@@ -214,11 +331,134 @@ components
     import '../components/bootstrap/origen/origen.js';
     ```
         
-### Añadir un enlace del componente recién creado al sidebar
+4. Añadir un enlace del componente recién creado al sidebar
+
+    Para añadir un enlace del nuevo contenido (componente) creado al sidebar se debe modificar el archivo `/components/nueva-vista/common/assets/sidebar.json`.
+
+    Anatomía del sidebar:
+
+    - `Rojo`: Zona de los enlaces a contenidos de la página
+    
+    - `verde`: Zona de enlaces a páginas de documentación externas 
+
+    ![Sidebar anatomy](img/sidebar-anatomy.png)
+
+    Anatomía del `sidebar.json`:
+
+    El `sidebar.json` debe tener dos objetos que contentrán listas, los objetos se llamarán `pageContent` y `links`:
+
+    - `pageContent`: Aquí se definirán los enlaces a la propia página mediante `objetos JSON` que tendrán dos propiedades, que se llamarán `text` y `content`.
+  
+      - `text`: El texto que aparecerá en el sidebar.
+      
+      - `content`: El nombre de etiqueta que se le ha dado al `WebComponent` en el paso anterior.
+
+      ```json
+      {
+        "text": "texto que aparecerá en el sidebar",
+        "content": "nombre-etiqueta-webcomponent"
+      }
+      ``` 
+
+    - `links`: Aquí se definirán los enlaces a páginas externas de documentación mediante `objetos JSON` que tendrán dos propiedades, que se llamarán `text` y `content`.
+
+        - `text`: El texto que aparecerá en el sidebar.
+
+        - `content`: Dirección web de la página de documentación.
+
+        ```json
+        {
+          "text": "texto que aparecerá en el sidebar",
+          "content": "https://dirección-pagina-documentación"
+        }
+        ``` 
+  
+    Ejemplo `sidebar.json`:
+
+    ```json
+    {
+        "pageContent" : [
+          {
+            "text": "texto que aparecerá en el sidebar",
+            "content": "nombre-etiqueta-webcomponent"
+          }
+        ],
+        "links" : [
+          {
+            "text": "texto que aparecerá en el sidebar",
+            "content": "https://dirección-pagina-documentación"
+          }
+        ]
+    }
+    ```
+
+    >[!Note]
+    >Siguiendo con el ejemplo de la nueva vista de `bootstrap` y el contenido sobre el origen de bootstrap llamado `origen` cuya definición del `WebComponent` se encuentra en el archivo `origen.js`, para añadir un enlace a ese `componente` en el `sidebar` habría que modificar el archivo `components/bootstrap/common/assets/sidebar.json`.
+
+    ```json
+    {
+        "pageContent" : [
+            {
+                "text": "Origen de Bootstrap",
+                "content": "component-bootstrap-origin"
+            }
+        ],
+        "links" : [
+            {
+                "text" : "Página oficial de Bootstrap",
+                "href" : "https://getbootstrap.com/"
+            }
+        ]
+    }
+    ```
+
+    ![Bootstrap content origin](img/component-boostrap-origin.png)
+
+    >[!Tip]
+    >Si en el `sidebar` se quiere hacer un submenú desplegable como en el siguiente ejemplo:   
+    >   
+    >![Sidebar submenu](img/sidebar-submenu.png)
+    >
+    >Dentro de la propiedad `content` del objeto `JSON` correspondiente, en lugar del `nombre de etiqueta` de un `WebComponent` se debe poner una lista dentro de la cual se definirán los enlaces.   
+    >Esto se puede hacer recursivamente para hacer submenús dentro de submenús.
+
+    ```json
+    {
+      "pageContent" : [
+          {
+              "text": "Origen de Bootstrap",
+              "content": "component-bootstrap-origin"
+          },
+          {
+              "text": "Submenu 1",
+              "content": [
+                  {
+                      "text": "Submenu anidado",
+                      "content":  [
+                          {
+                              "text": "De nuevo origen de Bootstrap",
+                              "content": "component-bootstrap-origin"
+                          }
+                      ]
+                  }
+              ]
+          }
+      ],
+      "links" : [
+          {
+              "text" : "Página oficial de Bootstrap",
+              "href" : "https://getbootstrap.com/"
+          }
+      ]
+    }
+    ```
+    Resultado:
+
+    ![Bootstrap sidebar with submenu](img/bootstrap-sidebar-with-submenu.png)
+
 
 ## Estilos
 
-# TODO: Añadir arquitectura de carpatas en bash en los ejemplos donde solo haya imágenes 
     
 
 

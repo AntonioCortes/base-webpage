@@ -6,7 +6,7 @@
         }
     },
     "nuevaVista" : {
-        "topic" : "Bootstrap (Texto que aparecerá en el navbar)",
+        "topic" : "Bootstrap",
         "basePath" : "components/bootstrap"
     },
     "mainView" : {

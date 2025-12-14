@@ -1,0 +1,28 @@
+{
+    "pageContent" : [
+        {
+            "text": "Origen de Bootstrap",
+            "content": "component-bootstrap-origin"
+        },
+        {
+            "text": "Submenu 1",
+            "content": [
+                {
+                    "text": "Submenu anidado",
+                    "content":  [
+                        {
+                            "text": "De nuevo origen de Bootstrap",
+                            "content": "component-bootstrap-origin"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "links" : [
+        {
+            "text" : "Página oficial de Bootstrap",
+            "href" : "https://getbootstrap.com/"
+        }
+    ]
+}
