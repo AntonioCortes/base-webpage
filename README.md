@@ -12,6 +12,11 @@
     - [Cómo crear una vista](#cómo-crear-una-vista)
     - [Cómo crear un contenido (componente)](#cómo-crear-un-contenido-componente)
   - [Estilos](#estilos)
+    - [Título principal de la página](#título-principal-de-la-página)
+    - [Tablas](#tablas)
+    - [Texto explicativo de una figura (Tabla, imagen, etc.)](#texto-explicativo-de-una-figura-tabla-imagen-etc)
+    - [Código](#código)
+    - [Imagen/gif](#imagengif)
 
 ## Resumen
 
@@ -468,6 +473,88 @@ components
 
 
 ## Estilos
+
+### Título principal de la página
+
+El título principal de la página debe llevar la clase `title` para que se vea centrado en la pantalla y con el tamaño adecuado.
+
+```html
+<h1 class="title">Title</h1>
+```
+
+### Tablas
+
+Las tablas deben llevar las clases `table`, `table-striped` y `table-hover`.
+
+```html
+<table class="table table-striped table-hover">
+	<thead>
+		<tr>
+			<th scope="col">#</th>
+			<th scope="col">First</th>
+			<th scope="col">Last</th>
+			<th scope="col">Handle</th>
+      	</tr>
+    </thead>
+    <tbody>
+      	<tr>
+        	<th scope="row">1</th>
+        	<td>Mark</td>
+        	<td>Otto</td>
+        	<td>@mdo</td>
+      	</tr>
+      	<tr>
+        	<th scope="row">2</th>
+        	<td>Jacob</td>
+        	<td>Thornton</td>
+        	<td>@fat</td>
+      	</tr>
+      	<tr>
+        	<th scope="row">3</th>
+        	<td colspan="2">Larry the Bird</td>
+        	<td>@twitter</td>
+      	</tr>
+	</tbody>
+</table>
+```
+
+### Texto explicativo de una figura (Tabla, imagen, etc.)
+
+Los textos explicativos que se añaden debajo de una figura deben ser `span` que tengan las clases `center-horizontal` y `caption`.
+
+```html
+<span class="center-horizontal caption">Example table</span>
+```
+
+### Código
+
+Para añadir un segmento de código a la página, dicho segmento de código de be tener la estructura `<div><pre><code> codigo </code></pre></div>`.
+
+- El `div` debe tener la clase `center-horizontal`.
+
+- El `code` debe tener la clase `language-<nombre_lenguaje>`
+
+```html
+<div class="center-horizontal">
+<pre><code class="language-java">
+public class HelloWorld
+{
+	public static void main(String[] args)
+	{
+		System.out.println("This is a hello world in Java");
+	}
+}
+</code></pre>
+</div>
+```
+
+### Imagen/gif
+
+Las imágenes y gifs deben llevar la clase `center-hotizontal` para que se vean centrados horizontalmente en la pantalla.
+
+```html
+<img class="center-horizontal" src="components/main-view/content-1/assets/gif/bootstrap.gif">
+```
 
     
 
