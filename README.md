@@ -233,7 +233,10 @@ components
 
     Para que la nueva vista aparezca en el navbar se debe modificar el archivo `/comon/assets/constants.json`.
 
-    1. Se deberá crear un nuevo objeto en el JSON a nivel de la raíz, el `identificador del nuevo objeto` puede ser el que se quiera mientras sea único, para este ejemplo, el identificador será `nuevaVista`.
+    1. Se deberá crear un nuevo objeto en el JSON a nivel de la raíz, el `identificador del nuevo objeto JSON` puede ser el que se quiera mientras sea único, para este ejemplo, el identificador será `nuevaVista`.   
+    
+        >[!Note]
+        >Cuando se carga la página, se cargará automáticamente la `vista` cuyo `identificador de objeto JSON` sea `mainView`.
     
     2. Dentro de este objeto debe haber dos propiedades: `topic` y `basepath`.
   
@@ -253,6 +256,10 @@ components
           "topic" : "Bootstrap (Texto que aparecerá en el navbar)",
           "basePath" : "components/bootstrap"
       },
+      "mainView" : {
+          "topic" : "Main Topic",
+          "basePath" : "components/main-view"
+      },
       ...
     }
     ``` 
@@ -260,6 +267,9 @@ components
     Resultado:
 
     ![Navbar after adding new view](img/navbar-nueva-vista.png)
+
+    >[!Note]
+    >Al pulsar en un enlace del navbar se cargará la `vista` correspondiente. Al cargarse una `vista` se cargará automáticamente el `contenido` correspondiente al primer enlace del `sidebar` de esa `vista`.
 
 ### Cómo crear un contenido (componente)
 
