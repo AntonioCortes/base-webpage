@@ -482,6 +482,8 @@ El título principal de la página debe llevar la clase `title` para que se vea 
 <h1 class="title">Title</h1>
 ```
 
+![Title example](img/title-example.png)
+
 ### Tablas
 
 Las tablas deben llevar las clases `table`, `table-striped` y `table-hover`.
@@ -518,6 +520,8 @@ Las tablas deben llevar las clases `table`, `table-striped` y `table-hover`.
 </table>
 ```
 
+![Table example](img/table-example.png)
+
 ### Texto explicativo de una figura (Tabla, imagen, etc.)
 
 Los textos explicativos que se añaden debajo de una figura deben ser `span` que tengan las clases `center-horizontal` y `caption`.
@@ -525,6 +529,8 @@ Los textos explicativos que se añaden debajo de una figura deben ser `span` que
 ```html
 <span class="center-horizontal caption">Example table</span>
 ```
+
+![Explanatory text example](img/explanatory-text-example.png)
 
 ### Código
 
@@ -551,6 +557,8 @@ public class HelloWorld
 </div>
 ```
 
+![Code example](img/code-example.png)
+
 ### Imagen/gif
 
 Las imágenes y gifs deben llevar la clase `center-hotizontal` para que se vean centrados horizontalmente en la pantalla.
@@ -558,6 +566,8 @@ Las imágenes y gifs deben llevar la clase `center-hotizontal` para que se vean 
 ```html
 <img class="center-horizontal" src="components/main-view/content-1/assets/gif/bootstrap.gif">
 ```
+
+![GIF example](img/gif-example.png)
 
     
 
