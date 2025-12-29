@@ -11,6 +11,7 @@
   - [Añadir contenido a la página](#añadir-contenido-a-la-página)
     - [Cómo crear una vista](#cómo-crear-una-vista)
     - [Cómo crear un contenido (componente)](#cómo-crear-un-contenido-componente)
+    - [Resumen creación contenido](#resumen-creación-contenido)
   - [Estilos](#estilos)
     - [Título principal de la página](#título-principal-de-la-página)
     - [Tablas](#tablas)
@@ -278,75 +279,75 @@ components
 
 ### Cómo crear un contenido (componente)
 
-1. En primer lugar se deberá crear una carpeta de `vista` donde se guardarán varios `contenidos` que tengan que ver con el mismo tema (Descrito en el paso anterior). 
+   1. En primer lugar se deberá crear una carpeta de `vista` donde se guardarán varios `contenidos` que tengan que ver con el mismo tema (Descrito en el paso anterior). 
 
-    >[!NOTE]
-    > `Ejemplo`: si vamos a hablar de bootstrap y vamos a hacer un `contenido` que habla sobe el origen de bootstrap y otro `contenido` que habla sobre como usar bootstrap:    
-    >1. Dentro de la carpeta components se creará una carpeta llamada bootstrap, que será la `vista`.   
-    >
-    >2. Dentro de la carpeta bootstrap se crearán una carpeta `common` y a parte una carpeta por cada `contenido`.   
-    >  
-    >![Component creation folder structure](img/component-creation-folder-structure.png) 
+       >[!NOTE]
+       > `Ejemplo`: si vamos a hablar de bootstrap y vamos a hacer un `contenido` que habla sobe el origen de bootstrap y otro `contenido` que habla sobre como usar bootstrap:    
+       >1. Dentro de la carpeta components se creará una carpeta llamada bootstrap, que será la `vista`.   
+       >
+       >2. Dentro de la carpeta bootstrap se crearán una carpeta `common` y a parte una carpeta por cada `contenido`.   
+       >  
+       >![Component creation folder structure](img/component-creation-folder-structure.png) 
 
-2. En segundo lugar, dentro de la carpeta del `contenido`, hay que crear un html y un js
+   2. En segundo lugar, dentro de la carpeta del `contenido`, hay que crear un html y un js
 
-    ```bash
-    components
-    |
-    +--Vista
-      |
-      +--common
-      |  |
-      |  +--...(Contenido descrito en el paso anterior)
-      |
-      +---Nuevo contenido
-          |
-          +--nuevo-contenido.html
-          |
-          +--nuevo-contenido.js
-    ``` 
-    
-    >[!Note]
-    >Siguiendo con el `ejemplo` de la vista de boostrap, lo que habrá dentro de la carpeta del `contenido` sobre el origen de boostrap será lo siguiente:    
-    >
-    >![Component files](img/component-files.png)
+       ```bash
+       components
+       |
+       +--Vista
+         |
+         +--common
+         |  |
+         |  +--...(Contenido descrito en el paso anterior)
+         |
+         +---Nuevo contenido
+             |
+             +--nuevo-contenido.html
+             |
+             +--nuevo-contenido.js
+       ``` 
+       
+       >[!Note]
+       >Siguiendo con el `ejemplo` de la vista de boostrap, lo que habrá dentro de la carpeta del `contenido` sobre el origen de boostrap será lo siguiente:    
+       >
+       >![Component files](img/component-files.png)
 
-    - `HTML`: En este archivo se escribirá todo lo que se quiera que renderizará en la zona de contenido:
-   
-        ![Main content area](img/main-content-area.png)
-
-    - `JS`: En este archivo se creará el WebComponent a nivel de javascript y se establecerá cual será el `nombre de etiqueta del componente`.
-
-      >[!TIP]
-      > - Se debe copiar siempre este código y sustituir lo siguientes elementos:
-      >
-      >   - La ruta relativa del import del `component-generator` se sustituirá por la ruta correspondiente dependiendo de donde estemos creando el nuevo componente.   
-      >
-      >   - El valor de `tagName` se sustituirá por el nombre de etiqueta que se le quiera dar al webcomponent (nombre inventado pero que empiece por la palabra component)   
-      >
-      >   - El valor de `htmlFileName` se sustituirá por el nombre del html que corresponda a dicho componente.  
+       - `HTML`: En este archivo se escribirá todo lo que se quiera que renderizará en la zona de contenido:
       
+           ![Main content area](img/main-content-area.png)
 
-      ```javascript
-      import { createComponent } from "../../../js/component-generator.js";
+       - `JS`: En este archivo se creará el WebComponent a nivel de javascript y se establecerá cual será el `nombre de etiqueta del componente`.
 
-      const tagName = 'component-bootstrap-origin';
-      const htmlFilename = 'origen.html';
+         >[!Important]
+         > - Se debe copiar siempre este código y sustituir lo siguientes elementos:
+         >
+         >   - La ruta relativa del import del `component-generator` se sustituirá por la ruta correspondiente dependiendo de donde estemos creando el nuevo componente.   
+         >
+         >   - El valor de `tagName` se sustituirá por el nombre de etiqueta que se le quiera dar al webcomponent (nombre inventado pero que empiece por la palabra component)   
+         >
+         >   - El valor de `htmlFileName` se sustituirá por el nombre del html que corresponda a dicho componente.  
+         
 
-      const baseUrl = import.meta.url.substring(0, import.meta.url.lastIndexOf('/') + 1);
-      createComponent(tagName, baseUrl + htmlFilename);
-      ```
+         ```javascript
+         import { createComponent } from "../../../js/component-generator.js";
 
-3. Añadir el nuevo componente creado al archivo components-imports.js
+         const tagName = 'component-bootstrap-origin';
+         const htmlFilename = 'origen.html';
 
-    Una vez creado el nuevo WebComponent, debe importarse el js que define ese WebComponent mediante una ruta relativa en el archivo `/js/components/imports.js`
+         const baseUrl = import.meta.url.substring(0, import.meta.url.lastIndexOf('/') + 1);
+         createComponent(tagName, baseUrl + htmlFilename);
+         ```
 
-    ```javascript
-    //Nuevo componente origen de bootstrap
-    import '../components/bootstrap/origen/origen.js';
-    ```
-        
-4. Añadir un enlace del componente recién creado al sidebar
+   3. Añadir el nuevo componente creado al archivo components-imports.js
+
+       Una vez creado el nuevo WebComponent, debe importarse el js que define ese WebComponent mediante una ruta relativa en el archivo `/js/components/imports.js`
+
+       ```javascript
+       //Nuevo componente origen de bootstrap
+       import '../components/bootstrap/origen/origen.js';
+       ```
+           
+   4. Añadir un enlace del componente recién creado al sidebar
 
     Para añadir un enlace del nuevo contenido (componente) creado al sidebar se debe modificar el archivo `/components/nueva-vista/common/assets/sidebar.json`.
 
@@ -472,6 +473,102 @@ components
     ![Bootstrap sidebar with submenu](img/bootstrap-sidebar-with-submenu.png)
 
 
+### Resumen creación contenido
+
+   1. Dentro de la carpeta `components`, crear la estructura de carpetas y archivos necesarios para la `vista` y el `contenido` si es que aún no están creados.
+
+       ```bash
+       components
+       |
+       +--Vista
+          |
+          +--common
+          |  |
+          |  +--assets
+          |  |
+          |  +--img
+          |  |  |
+          |  |  +--logo.svg
+          |  |
+          |  +--sidebar.json
+          |
+          +---Nuevo contenido
+              |
+              +--nuevo-contenido.html
+              |
+              +--nuevo-contenido.js
+       ``` 
+
+   2. Dentro de la carpeta de `contenido` que se acabe de crear:
+
+        - En el archivo `.html` escribir el código html que se quiera renderizar en la página en la zona del `contenido`.
+     
+        - En el archivo `.js` copiar el siguiente código para crear el WebComponent:
+
+           >[!Important]
+           > - Se debe copiar siempre este código y sustituir lo siguientes elementos:
+           >
+           >   - La ruta relativa del import del `component-generator` se sustituirá por la ruta correspondiente dependiendo de donde estemos creando el nuevo componente.   
+           >
+           >   - El valor de `tagName` se sustituirá por el nombre de etiqueta que se le quiera dar al webcomponent (nombre inventado pero que empiece por la palabra component)   
+           >
+           >   - El valor de `htmlFileName` se sustituirá por el nombre del html que corresponda a dicho componente. 
+
+           ```javascript
+           import { createComponent } from "../../../js/component-generator.js";
+
+           const tagName = 'component-nuevo-contenido';
+           const htmlFilename = 'nuevo-contenido.html';
+
+           const baseUrl = import.meta.url.substring(0, import.meta.url.lastIndexOf('/') + 1);
+           createComponent(tagName, baseUrl + htmlFilename);
+           ```
+
+   3. Añadir el nuevo componente creado al archivo components-imports.js
+
+       Una vez creado el nuevo WebComponent, debe importarse el js que define ese WebComponent mediante una ruta relativa en el archivo `/js/components/imports.js`
+
+       ```javascript
+       import '../components/Vista/Nuevo contenido/nuevo-contenido.js';
+       ```
+
+   4. Añadir un enlace del componente recién creado al sidebar 
+      
+      Modificar el archivo `sidebar.json` para añadir un enlace al nuevo componente:
+
+      ```json
+       {
+           "pageContent" : [
+             {
+               "text": "texto que aparecerá en el sidebar",
+               "content": "component-nuevo-contenido"
+             }
+           ],
+           "links" : [
+             {
+               "text": "texto que aparecerá en el sidebar",
+               "content": "https://dirección-pagina-documentación"
+             }
+           ]
+       }
+
+   5. (Solo si la vista se acaba de crear) Si aún no está añadido el enlace a la nueva vista en el `navbar`, añadir un nuevo enlace en el navbar modificando el archivo `/components/common/assets/constants.json`.
+
+       ```json
+       {
+         "common" : {
+             "paths" : {
+                 "navbar" : "components/common/navbar.html",
+                 "sidebar" : "components/common/sidebar.html"
+             }
+         },
+         "nuevaVista" : {
+             "topic" : "Nueva Vista",
+             "basePath" : "components/Vista"
+         }
+       }
+       ```
+       
 ## Estilos
 
 ### Título principal de la página
@@ -568,8 +665,3 @@ Las imágenes y gifs deben llevar la clase `center-hotizontal` para que se vean 
 ```
 
 ![GIF example](img/gif-example.png)
-
-    
-
-
-
